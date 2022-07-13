@@ -1,0 +1,9 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .nav-menu {
+    @apply transition-all flex fixed w-60 h-screen p-4 top-0 bg-gray-700 -left-full duration-700 z-50;
+  }
+}
