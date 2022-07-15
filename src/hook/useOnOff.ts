@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 type useOnOffProps = [boolean, () => void, () => void];
 
@@ -11,7 +11,7 @@ const useOnOff = (): useOnOffProps => {
 
   // 사이드바가 열려있을 때 사이드바 영역 외 다른 영역 클릭 시 사이드바 닫기
   const offHandler = () => {
-    onOff && setOnOff(!onOff);
+    if (onOff) setOnOff(false);
   };
 
   return [onOff, onOffHandler, offHandler];

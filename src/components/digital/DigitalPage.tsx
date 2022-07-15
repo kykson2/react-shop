@@ -1,7 +1,5 @@
-import React from "react";
+import React from 'react'
 
-const DigitalPage: React.FC = () => {
-  return <div>디지털 페이지</div>;
-};
+const DigitalPage: React.FC = () => <div>디지털 페이지</div>
 
-export default DigitalPage;
+export default DigitalPage
