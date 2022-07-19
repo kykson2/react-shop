@@ -1,12 +1,15 @@
-import React from "react";
-import MainPageCarousel from "./carousel/MainPageCarousel";
-import FashionPage from "../fasion/FashionPage";
+import React from 'react';
+import MainPageCarousel from '@/components/main/carousel/MainPageCarousel';
+import FashionPage from '@/components/fashion/FashionPage';
 
-const MainPage: React.FC = () => (
-  <div className="mainpage-area pt-16">
-    <MainPageCarousel />
-    <FashionPage />
-  </div>
-);
+const MainPage: React.FC = () => {
+    const limit = 4;
+    return (
+        <div className="mainpage-area">
+            <MainPageCarousel />
+            <FashionPage limit={limit} />
+        </div>
+    );
+};
 
 export default MainPage;

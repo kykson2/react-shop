@@ -1,5 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-const ErrorPage: React.FC = () => <div>404</div>
+const ErrorPage: React.FC = () => <div>404</div>;
 
-export default ErrorPage
+export default ErrorPage;
