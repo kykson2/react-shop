@@ -20,30 +20,37 @@ interface Icategory {
 }
 
 const ProductsList: React.FC<Icategory> = ({ category, limit }) => {
-    console.log(limit);
+    let distinctionList: Iproduct[] = [];
+    products.map(
+        (item: Iproduct) =>
+            item.category.includes(category) && distinctionList.push(item)
+    );
+
     return (
-        <div className="">
+        <div className="sm:flex md:grid lg:grid ">
             {limit ? (
-                <div className="flex pt-6 pb-6 overflow-x-auto">
-                    {products.slice(0, limit).map(
+                <div className="flex overflow-x-auto md:grid grid-cols-2 xl:grid-cols-4">
+                    {distinctionList.slice(0, limit).map(
                         (item: Iproduct) =>
                             item.category.includes(category) && (
                                 <div
                                     key={item.id}
-                                    className="w-56 mx-4 rounded-lg border-2 bg-white dark:border-0"
+                                    className="flex lg:flex flex-col border-2 bg-white rounded-xl flex-1 dark:border-slate-700 group m-4"
                                 >
-                                    <div className="flex w-56  h-80  ">
-                                        <img
-                                            src={item.image}
-                                            alt={item.title}
-                                            className="transition w-28 m-auto duration-100 hover:scale-125"
-                                        ></img>
+                                    <div className="product-image-area">
+                                        <div className="flex m-auto h-80 ">
+                                            <img
+                                                src={item.image}
+                                                alt={item.title}
+                                                className="transition w-24 m-auto object-cover duration-300 group-hover:scale-125"
+                                            ></img>
+                                        </div>
                                     </div>
                                     <div className="product-title-area">
-                                        <p className="dark:text-gray-400">
+                                        <div className="flex dark:text-gray-400">
                                             {item.title}
-                                        </p>
-                                        <p className="font-light mt-1 dark:text-gray-400">
+                                        </div>
+                                        <p className="flex font-light pt-3   dark:text-gray-400">
                                             $ {item.price}
                                         </p>
                                     </div>
@@ -52,26 +59,28 @@ const ProductsList: React.FC<Icategory> = ({ category, limit }) => {
                     )}
                 </div>
             ) : (
-                <div className="grid pt-6 pb-6 justify-items-center">
-                    {products.map(
+                <div className="sm:flex flex-wrap md:grid grid-cols-2 lg:grid-cols-4">
+                    {distinctionList.map(
                         (item: Iproduct) =>
                             item.category.includes(category) && (
                                 <div
                                     key={item.id}
-                                    className="w-80 mx-4 mb-6 bg-white  rounded-lg  border-2 dark:border-0 "
+                                    className="flex flex-col border-2 bg-white rounded-xl flex-1 dark:border-slate-700 group m-4"
                                 >
-                                    <div className="flex w-80 h-80 ">
-                                        <img
-                                            src={item.image}
-                                            alt={item.title}
-                                            className="flex transition w-28 mx-auto self-center duration-100 hover:scale-125"
-                                        ></img>
+                                    <div className="product-image-area">
+                                        <div className="flex m-auto h-80 ">
+                                            <img
+                                                src={item.image}
+                                                alt={item.title}
+                                                className="transition w-24 m-auto object-cover duration-300 group-hover:scale-125"
+                                            ></img>
+                                        </div>
                                     </div>
                                     <div className="product-title-area">
-                                        <p className="dark:text-gray-400">
+                                        <div className="flex dark:text-gray-400">
                                             {item.title}
-                                        </p>
-                                        <p className="font-light mt-1 dark:text-gray-400">
+                                        </div>
+                                        <p className="flex font-light pt-3   dark:text-gray-400">
                                             $ {item.price}
                                         </p>
                                     </div>

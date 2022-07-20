@@ -10,15 +10,23 @@
 
 @layer components {
     .nav-side-menu {
-        @apply transition-all flex fixed w-60 h-screen p-4 top-0 bg-gray-700 -left-full duration-700 z-50;
+        @apply flex fixed transition-all  w-60 h-screen p-4 top-0 bg-gray-700 -left-full duration-300 z-50;
     }
 
     ,
     .sideBarOff {
-        @apply absolute transition w-full h-screen top-0 duration-700;
+        @apply absolute transition w-full h-screen top-0 duration-300;
+    }
+
+    .product-area {
+        @apply flex flex-col w-56 mx-4 rounded-xl  border-2 bg-white  dark:border-slate-700;
+    }
+
+    .product-image-area {
+        @apply flex basis-2/3 w-56 m-auto;
     }
 
     .product-title-area {
-        @apply h-36 p-5 bg-gray-100 font-bold rounded-b-lg dark:bg-slate-700;
+        @apply flex flex-col basis-1/3 p-4 h-full rounded-b-lg  bg-gray-100 font-bold  dark:bg-slate-700;
     }
 }
