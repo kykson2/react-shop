@@ -7,6 +7,7 @@ import AccessoriesPage from '@/components/accessories/AccessoriesPage';
 import DigitalPage from '@/components/digital/DigitalPage';
 import Cart from '@/components/cart/Cart';
 import ErrorPage from '@/components/error/ErrorPage';
+import Product from '@/components/product/Product';
 
 const App = () => {
     return (
@@ -25,6 +26,7 @@ const App = () => {
                         <Route path="digital" element={<DigitalPage />} />
                         <Route path="cart" element={<Cart />} />
                         <Route path="error" element={<ErrorPage />} />
+                        <Route path="product/*" element={<Product />} />
                     </Routes>
                 </div>
             </Router>

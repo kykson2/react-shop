@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import products from '@/product.json';
 
 interface Iproduct {
@@ -33,9 +34,11 @@ const ProductsList: React.FC<Icategory> = ({ category, limit }) => {
                     {distinctionList.slice(0, limit).map(
                         (item: Iproduct) =>
                             item.category.includes(category) && (
-                                <div
+                                <Link
+                                    to={`/product/${item.id}`}
+                                    state={{ product: item }}
                                     key={item.id}
-                                    className="flex lg:flex flex-col border-2 bg-white rounded-xl flex-1 dark:border-slate-700 group m-4"
+                                    className="flex lg:flex flex-col border-2 bg-white rounded-xl flex-1  dark:border-slate-700 group m-4"
                                 >
                                     <div className="product-image-area">
                                         <div className="flex m-auto h-80 ">
@@ -54,16 +57,18 @@ const ProductsList: React.FC<Icategory> = ({ category, limit }) => {
                                             $ {item.price}
                                         </p>
                                     </div>
-                                </div>
+                                </Link>
                             )
                     )}
                 </div>
             ) : (
-                <div className="sm:flex flex-wrap md:grid grid-cols-2 lg:grid-cols-4">
+                <div className="sm:flex flex-wrap overflow-x-auto md:grid grid-cols-2 lg:grid-cols-4">
                     {distinctionList.map(
                         (item: Iproduct) =>
                             item.category.includes(category) && (
-                                <div
+                                <Link
+                                    to={`/product/${item.id}`}
+                                    state={{ product: item }}
                                     key={item.id}
                                     className="flex flex-col border-2 bg-white rounded-xl flex-1 dark:border-slate-700 group m-4"
                                 >
@@ -84,7 +89,7 @@ const ProductsList: React.FC<Icategory> = ({ category, limit }) => {
                                             $ {item.price}
                                         </p>
                                     </div>
-                                </div>
+                                </Link>
                             )
                     )}
                 </div>
