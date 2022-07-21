@@ -59,7 +59,7 @@ const Product: React.FC = () => {
             ratingHandler(productDetail.product.rating.rate);
             countHandler(productDetail.product.rating.count);
         }
-    }, [location.state]);
+    }, [productDetail.product]);
 
     return (
         <div className="">
@@ -82,7 +82,7 @@ const Product: React.FC = () => {
                 <p className="px-10">{productDetail.product.description}</p>
             </div>
             <div className="">
-                <StarsRating value={rating} />
+                <StarsRating value={rating} aria-readonly="true" />
             </div>
         </div>
     );
