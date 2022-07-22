@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import useNumber from '@/hook/useNumber';
-import StarsRating from 'react-star-rate';
+import RatingStar from '@/components/product/RatingStar';
 
 interface Iproduct {
     id: number;
@@ -21,8 +20,6 @@ interface Istate {
 }
 
 const Product: React.FC = () => {
-    const [rating, ratingHandler] = useNumber();
-    const [count, countHandler] = useNumber();
     const location = useLocation();
     const [productDetail, setProductDetail] = useState<Istate>({
         product: {
@@ -55,11 +52,8 @@ const Product: React.FC = () => {
                     },
                 },
             });
-
-            ratingHandler(productDetail.product.rating.rate);
-            countHandler(productDetail.product.rating.count);
         }
-    }, [productDetail.product]);
+    }, [location.state]);
 
     return (
         <div className="">
@@ -70,19 +64,24 @@ const Product: React.FC = () => {
                     className="flex p-4 w-56 m-auto"
                 ></img>
             </div>
-            <div className="flex product-detail-title items-center mt-4">
-                <p className="flex px-10 font-medium text-2xl">
-                    {productDetail.product.title}
-                    <span className="flex h-5 px-1 ml-4 text-base text-white rounded-xl items-center self-center bg-green-400">
-                        new
-                    </span>
-                </p>
-            </div>
-            <div className="product-detail-description flex items-center mt-4">
-                <p className="px-10">{productDetail.product.description}</p>
-            </div>
-            <div className="">
-                <StarsRating value={rating} aria-readonly="true" />
+            <div className="relative flex flex-col">
+                <div className="product-detail-title mt-4">
+                    <p className="flex px-10 font-medium text-2xl">
+                        {productDetail.product.title}
+                        <span className="flex h-5 px-1 ml-4 text-base text-white rounded-xl items-center self-center bg-green-400">
+                            new
+                        </span>
+                    </p>
+                </div>
+                <div className="product-detail-description flex items-center mt-4">
+                    <p className="px-10">{productDetail.product.description}</p>
+                </div>
+                <div className="rating-star-area flex px-9 pt-3">
+                    <RatingStar
+                        rating={productDetail.product.rating.rate}
+                        count={productDetail.product.rating.count}
+                    />
+                </div>
             </div>
         </div>
     );
