@@ -33,4 +33,8 @@
     .product-button {
         @apply flex w-32 h-11 mr-3 text-white text-sm font-bold items-center place-content-center rounded-lg;
     }
+
+    .cart-button {
+        @apply flex w-12 h-12 text-white font-bold text-2xl items-center place-content-center bg-indigo-600;
+    }
 }

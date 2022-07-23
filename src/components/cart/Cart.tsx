@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import products from '@/product.json';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { addProductCount, subProductCount } from '@/store/cartSlice';
+import { useSelector } from 'react-redux';
+import FilledCart from './FilledCart';
+import EmptyCart from './EmptyCart';
 
 interface IcartState {
     id: number;
@@ -24,19 +24,17 @@ interface Iproduct {
         rate: number;
         count: number;
     };
-}
-
-interface Icategory {
-    category: string;
-    limit?: number;
+    totalCount?: number;
+    totalPrice?: number;
 }
 
 const Cart: React.FC = () => {
-    const dispatch = useDispatch();
+    const [totalProductsPrice, setTotalProductPrice] = useState<number>(0);
+
     const productSelector = useSelector((state: Icart) => state.cart);
     let distinctionList: Iproduct[] = [];
-    let totalPrice = 0;
-    let count = 0;
+    let sum = 0;
+    let localStorageItems = localStorage.getItem('cart');
 
     for (const product of products) {
         for (const cartProduct of productSelector) {
@@ -46,72 +44,30 @@ const Cart: React.FC = () => {
         }
     }
 
+    useEffect(() => {
+        distinctionList.map((item) => {
+            sum += Number(item.price) * Number(item.totalCount);
+            setTotalProductPrice(sum);
+        });
+    }, [productSelector, distinctionList]);
+
     return (
         <div>
-            <div className="mt-8">
-                {distinctionList.map((item: Iproduct) => {
-                    for (const cartProduct of productSelector) {
-                        if (item.id === cartProduct.id) {
-                            totalPrice = item.price * cartProduct.count;
-                            count = cartProduct.count;
-                        }
-                    }
-                    return (
-                        <div>
-                            <Link
-                                to={`/product/${item.id}`}
-                                state={{ product: item }}
-                                key={item.id}
-                                className="flex flex-col pb-8"
-                            >
-                                <div className="product-image-area">
-                                    <div className="flex">
-                                        <img
-                                            src={item.image}
-                                            alt={item.title}
-                                            className="flex p-4 w-40 m-auto"
-                                        ></img>
-                                    </div>
-                                </div>
-                                <div className="">
-                                    <div className="">{item.title}</div>
-                                </div>
-                            </Link>
-                            <div className="mt-4 mb-4">$ {totalPrice}</div>
-                            <div className="flex">
-                                <button
-                                    type="button"
-                                    className="product-button bg-indigo-600"
-                                    onClick={() => {
-                                        dispatch(
-                                            addProductCount({
-                                                id: item.id,
-                                                count: 1,
-                                            })
-                                        );
-                                    }}
-                                >
-                                    장바구니에 담기
-                                </button>
-                                {count}
-                                <button
-                                    type="button"
-                                    className="product-button bg-indigo-600"
-                                    onClick={() => {
-                                        dispatch(
-                                            subProductCount({
-                                                id: item.id,
-                                                count: 1,
-                                            })
-                                        );
-                                    }}
-                                >
-                                    장바구니에 담기
-                                </button>
-                            </div>
-                        </div>
-                    );
-                })}
+            <div className="mt-8 ml-5">
+                {distinctionList.length === 0 ? (
+                    <EmptyCart />
+                ) : (
+                    <FilledCart
+                        distinctionList={distinctionList}
+                        productSelector={productSelector}
+                    />
+                )}
+                <div className="w-80 m-auto text-xl mt-4 mb-4">
+                    총 : $
+                    {distinctionList.length
+                        ? Math.round(totalProductsPrice)
+                        : 0}
+                </div>
             </div>
         </div>
     );

@@ -40,8 +40,6 @@ export const cartSlice = createSlice({
                     product.count -= action.payload.count;
                 }
 
-                console.log(state.indexOf(product));
-
                 if (!product.count) state.splice(state.indexOf(product), 1);
             });
 
