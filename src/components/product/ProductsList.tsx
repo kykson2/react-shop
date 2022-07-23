@@ -53,8 +53,8 @@ const ProductsList: React.FC<Icategory> = ({ category, limit }) => {
                                         <div className="flex dark:text-gray-400">
                                             {item.title}
                                         </div>
-                                        <p className="flex font-light pt-3   dark:text-gray-400">
-                                            $ {item.price}
+                                        <p className="flex font-normal pt-3   dark:text-gray-400">
+                                            $ {Math.round(item.price)}
                                         </p>
                                     </div>
                                 </Link>
@@ -86,7 +86,7 @@ const ProductsList: React.FC<Icategory> = ({ category, limit }) => {
                                             {item.title}
                                         </div>
                                         <p className="flex font-light pt-3   dark:text-gray-400">
-                                            $ {item.price}
+                                            $ {Math.round(item.price)}
                                         </p>
                                     </div>
                                 </Link>

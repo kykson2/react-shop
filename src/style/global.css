@@ -29,4 +29,8 @@
     .product-title-area {
         @apply flex flex-col  p-4 h-full rounded-b-lg  bg-gray-100 font-bold  dark:bg-slate-700;
     }
+
+    .product-button {
+        @apply flex w-32 h-11 mr-3 text-white text-sm font-bold items-center place-content-center rounded-lg;
+    }
 }

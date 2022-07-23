@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
 import CarouselData from '@/components/main/carousel/CarouselData';
 
 const MainPageCarousel: React.FC = () => (
