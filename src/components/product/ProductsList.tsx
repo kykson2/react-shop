@@ -81,8 +81,8 @@ const ProductsList: React.FC<Icategory> = ({ category, limit }) => {
                                             ></img>
                                         </div>
                                     </div>
-                                    <div className="product-title-area">
-                                        <div className="flex dark:text-gray-400">
+                                    <div className="product-title-area border-slate-700">
+                                        <div className="flex dark:text-gray-400 border-slate-700 ">
                                             {item.title}
                                         </div>
                                         <p className="flex font-light pt-3   dark:text-gray-400">

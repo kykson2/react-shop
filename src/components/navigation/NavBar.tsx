@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as AiIcons from 'react-icons/ai';
 import * as BsIcons from 'react-icons/bs';
@@ -7,12 +7,31 @@ import SideBarData from '@/components/navigation/SideBarData';
 
 import useOnOff from '@/hook/useOnOff';
 import useDarkMode from '@/hook/useDarkMode';
+import { Icart } from '@/interface/interface';
+import { useSelector } from 'react-redux';
 
 const NavBar: React.FC = () => {
     const [sideBarOnOff, sideBarOnOffHandler, sideBarOffHandler] = useOnOff();
     const [searchOnOff, searchOnOffHandler] = useOnOff();
     const [colorTheme, setTheme] = useDarkMode();
     const [darkMode, setDarkMode] = useState<boolean>(false);
+    const [totalProductsPrice, setTotalProductPrice] = useState<number>(0);
+
+    const productSelector = useSelector((state: Icart) => state.cart);
+
+    let sum = 0;
+
+    useEffect(() => {
+        productSelector.map((cartProduct) => {
+            sum += cartProduct.count;
+            setTotalProductPrice(sum);
+        });
+        if (!productSelector.length) {
+            setTotalProductPrice(0);
+        }
+    }, [productSelector]);
+
+    console.log(totalProductsPrice);
 
     const darkModeHandler = (): void => {
         setTheme(colorTheme);
@@ -66,8 +85,13 @@ const NavBar: React.FC = () => {
                             />
                         </div>
                         <Link to="/cart">
-                            <div className="nav-cart icon-box">
+                            <div className="nav-cart icon-box relative">
                                 <BsIcons.BsHandbag className="w-6 h-6 m-auto" />
+                            </div>
+                            <div className="absolute flex top-0 right-1 w-5 h-5 bg-red-500 text-white rounded-full">
+                                <p className="flex items-center mx-auto">
+                                    {totalProductsPrice}
+                                </p>
                             </div>
                         </Link>
                     </div>
