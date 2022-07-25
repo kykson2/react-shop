@@ -19,6 +19,8 @@ const NavBar: React.FC = () => {
 
     const productSelector = useSelector((state: Icart) => state.cart);
 
+    const getItem = localStorage.getItem('cart');
+
     let sum = 0;
 
     useEffect(() => {
@@ -29,6 +31,7 @@ const NavBar: React.FC = () => {
         if (!productSelector.length) {
             setTotalProductPrice(0);
         }
+        sum = 0;
     }, [productSelector]);
 
     const darkModeHandler = (): void => {

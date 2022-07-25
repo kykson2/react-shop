@@ -22,4 +22,26 @@ interface Icart {
     cart: IcartState[];
 }
 
-export type { Iproduct, IcartState, Icart };
+interface Istate {
+    product: Iproduct;
+}
+
+interface IcartDispatch {
+    id: number;
+    count: number;
+}
+
+interface IgetStorageCartList {
+    id: number;
+    title: string;
+    count: number;
+}
+
+export type {
+    Iproduct,
+    IcartState,
+    Icart,
+    Istate,
+    IcartDispatch,
+    IgetStorageCartList,
+};

@@ -3,28 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import StarsRating from 'react-star-ratings';
-
-interface Iproduct {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    category: string;
-    image: string;
-    rating: {
-        rate: number;
-        count: number;
-    };
-}
-
-interface Istate {
-    product: Iproduct;
-}
-
-interface cartDispatch {
-    id: number;
-    count: number;
-}
+import { Istate } from '@/interface/interface';
 
 const Product: React.FC = () => {
     const location = useLocation();

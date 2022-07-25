@@ -11,6 +11,13 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
+        getStoregyCartListReducer: (state, action) => {
+            state.filter(
+                (product: IinitialState) => product.id === action.payload.id
+            ).length === 0 && state.push(action.payload);
+            localStorage.setItem('cart', JSON.stringify(state));
+        },
+
         setProductReducer: (state, action) => {
             state.map((product: IinitialState) => {
                 if (product.id === action.payload.id) {
@@ -58,6 +65,7 @@ export const cartSlice = createSlice({
 });
 
 export const {
+    getStoregyCartListReducer,
     setProductReducer,
     addProductCount,
     subProductCount,

@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 import NavBar from '@/components/navigation/NavBar';
 import MainPage from '@/components/main/MainPage';
 import FashionPage from '@/components/fashion/FashionPage';
@@ -8,8 +10,10 @@ import DigitalPage from '@/components/digital/DigitalPage';
 import Cart from '@/components/cart/Cart';
 import ErrorPage from '@/components/error/ErrorPage';
 import Product from '@/components/product/Product';
-import { useDispatch } from 'react-redux';
-import { setProductReducer } from '@/store/cartSlice';
+
+import { getStoregyCartListReducer } from '@/store/cartSlice';
+import { IgetStorageCartList } from '@/interface/interface';
+import Footer from './footer/footer';
 
 const App = () => {
     const getItem = localStorage.getItem('cart');
@@ -17,13 +21,10 @@ const App = () => {
 
     if (getItem) {
         const getCartList = JSON.parse(getItem);
-        console.log(typeof getCartList);
+        getCartList.map((item: IgetStorageCartList) => {
+            dispatch(getStoregyCartListReducer(item));
+        });
     }
-
-    // if (getCartList) {
-    //     getCartList
-    //     dispatch(setProductReducer(getCartList));
-    // }
 
     return (
         <div className={'w-full h-full dark:bg-slate-800'}>
@@ -44,6 +45,7 @@ const App = () => {
                         <Route path="product/*" element={<Product />} />
                     </Routes>
                 </div>
+                <Footer />
             </Router>
         </div>
     );
