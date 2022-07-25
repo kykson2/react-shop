@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const EmptyCart: FC = () => {
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col ">
             <h1 className="w-80 text-2xl">장바구니에 물품이 없습니다.</h1>
 
             <Link

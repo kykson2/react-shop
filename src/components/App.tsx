@@ -8,8 +8,23 @@ import DigitalPage from '@/components/digital/DigitalPage';
 import Cart from '@/components/cart/Cart';
 import ErrorPage from '@/components/error/ErrorPage';
 import Product from '@/components/product/Product';
+import { useDispatch } from 'react-redux';
+import { setProductReducer } from '@/store/cartSlice';
 
 const App = () => {
+    const getItem = localStorage.getItem('cart');
+    const dispatch = useDispatch();
+
+    if (getItem) {
+        const getCartList = JSON.parse(getItem);
+        console.log(typeof getCartList);
+    }
+
+    // if (getCartList) {
+    //     getCartList
+    //     dispatch(setProductReducer(getCartList));
+    // }
+
     return (
         <div className={'w-full h-full dark:bg-slate-800'}>
             {/* 네비게이션 바 */}

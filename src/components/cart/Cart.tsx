@@ -5,6 +5,7 @@ import FilledCart from './FilledCart';
 import EmptyCart from './EmptyCart';
 
 import { Iproduct, Icart } from '@/interface/interface';
+import BuyCart from './BuyCart';
 
 const Cart: React.FC = () => {
     const [totalProductsPrice, setTotalProductPrice] = useState<number>(0);
@@ -13,6 +14,7 @@ const Cart: React.FC = () => {
     let distinctionList: Iproduct[] = [];
     let sum = 0;
 
+    useEffect(() => {});
     for (const product of products) {
         for (const cartProduct of productSelector) {
             if (product.id === cartProduct.id) {
@@ -44,10 +46,13 @@ const Cart: React.FC = () => {
                         productSelector={productSelector}
                     />
                 )}
-                <div className="w-80 m-auto text-xl mt-4 mb-4">
-                    총 : ${Math.round(totalProductsPrice)}
-                </div>
             </div>
+            <div className="mt-8 ml-5 w-80 items-center ">
+                <span className="text-xl mb-4 items-center">
+                    총 : ${Math.round(totalProductsPrice)}
+                </span>
+            </div>
+            <BuyCart />
         </div>
     );
 };

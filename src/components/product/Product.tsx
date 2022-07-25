@@ -69,7 +69,7 @@ const Product: React.FC = () => {
                 <img
                     src={productDetail.product.image}
                     alt={productDetail.product.title}
-                    className="flex p-4 w-56 m-auto"
+                    className="flex p-14 max-w-full max-h-full m-auto"
                 ></img>
             </div>
             <div className="relative flex flex-col">
@@ -109,6 +109,7 @@ const Product: React.FC = () => {
                             dispatch(
                                 setProductReducer({
                                     id: productDetail.product.id,
+                                    title: productDetail.product.title,
                                     count: 1,
                                 })
                             );

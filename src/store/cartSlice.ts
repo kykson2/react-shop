@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 interface IinitialState {
     id: number;
+    title: string;
     count: number;
 }
 
@@ -29,6 +30,7 @@ export const cartSlice = createSlice({
                 if (product.id === action.payload.id) {
                     product.count += action.payload.count;
                 }
+                if (!product.count) state.splice(state.indexOf(product), 1);
             });
 
             localStorage.setItem('cart', JSON.stringify(state));
@@ -45,9 +47,20 @@ export const cartSlice = createSlice({
 
             localStorage.setItem('cart', JSON.stringify(state));
         },
+
+        removeCart: (state) => {
+            state.map((product: IinitialState) => {
+                if (product.count) state.splice(state.indexOf(product));
+            });
+            localStorage.setItem('cart', JSON.stringify(state));
+        },
     },
 });
 
-export const { setProductReducer, addProductCount, subProductCount } =
-    cartSlice.actions;
+export const {
+    setProductReducer,
+    addProductCount,
+    subProductCount,
+    removeCart,
+} = cartSlice.actions;
 export default cartSlice.reducer;

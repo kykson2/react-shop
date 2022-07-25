@@ -31,8 +31,6 @@ const NavBar: React.FC = () => {
         }
     }, [productSelector]);
 
-    console.log(totalProductsPrice);
-
     const darkModeHandler = (): void => {
         setTheme(colorTheme);
         colorTheme === 'light' ? setDarkMode(true) : setDarkMode(false);

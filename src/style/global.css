@@ -31,10 +31,14 @@
     }
 
     .product-button {
-        @apply flex w-32 h-11 mr-3 text-white text-sm font-bold items-center place-content-center rounded-lg;
+        @apply flex px-3 py-3 mr-3 text-white text-sm font-bold items-center place-content-center rounded-lg;
     }
 
     .cart-button {
         @apply flex w-12 h-12 text-white font-bold text-2xl items-center place-content-center bg-indigo-600;
+    }
+
+    .cart-buy-modal {
+        @apply fixed w-full h-52 bg-slate-700 text-gray-100 font-bold bottom-0 pl-4 py-2 z-50 rounded-t-2xl;
     }
 }

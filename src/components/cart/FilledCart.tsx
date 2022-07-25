@@ -77,6 +77,7 @@ const FilledCart: FC<IFilledCart> = ({ distinctionList, productSelector }) => {
                                     dispatch(
                                         subProductCount({
                                             id: item.id,
+                                            title: item.title,
                                             count: 1,
                                         })
                                     );
@@ -94,6 +95,7 @@ const FilledCart: FC<IFilledCart> = ({ distinctionList, productSelector }) => {
                                     dispatch(
                                         addProductCount({
                                             id: item.id,
+                                            title: item.title,
                                             count: 1,
                                         })
                                     );
