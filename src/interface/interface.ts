@@ -37,6 +37,15 @@ interface IgetStorageCartList {
     count: number;
 }
 
+interface IbreadCrumbsState {
+    prev: string;
+    current: string;
+}
+
+interface IbreadCrumbsSelector {
+    breadCrumbs: IbreadCrumbsState;
+}
+
 export type {
     Iproduct,
     IcartState,
@@ -44,4 +53,6 @@ export type {
     Istate,
     IcartDispatch,
     IgetStorageCartList,
+    IbreadCrumbsState,
+    IbreadCrumbsSelector,
 };

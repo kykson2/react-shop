@@ -1,9 +1,10 @@
 import { setProductReducer } from '@/store/cartSlice';
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import StarsRating from 'react-star-ratings';
-import { Istate } from '@/interface/interface';
+import { IbreadCrumbsSelector, Istate } from '@/interface/interface';
+import { setbreadCrumbsReducer } from '@/store/breadCrumbsSlice';
 
 const Product: React.FC = () => {
     const location = useLocation();
@@ -22,6 +23,10 @@ const Product: React.FC = () => {
             },
         },
     });
+
+    const [category, setCategory] = useState<string>('');
+
+    // 선택된 상품의 자세한 정보를 가져온다
     useEffect(() => {
         if (location.state) {
             let __state = location.state as Istate;
@@ -41,6 +46,24 @@ const Product: React.FC = () => {
             });
         }
     }, [location.state]);
+
+    useEffect(() => {
+        if (productDetail.product.category.includes('clothing')) {
+            setCategory('패션');
+        }
+        if (productDetail.product.category === 'electronics') {
+            setCategory('디지털');
+        }
+        if (productDetail.product.category === 'jewelery') {
+            setCategory('악세서리');
+        }
+        dispatch(
+            setbreadCrumbsReducer({
+                prev: category,
+                current: productDetail.product.title,
+            })
+        );
+    }, [productDetail, category]);
 
     return (
         <div className="">

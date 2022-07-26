@@ -1,12 +1,52 @@
-import React, { useState } from 'react';
+import { IbreadCrumbsSelector } from '@/interface/interface';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
-interface Ipage {
-    prevPage?: string;
-    currentPage?: string;
-}
+const BreadCrumbs: React.FC = () => {
+    const breadCrumbsSelector = useSelector(
+        (state: IbreadCrumbsSelector) => state.breadCrumbs
+    );
 
-const CurrentPage: React.FC<Ipage> = ({ prevPage, currentPage }) => {
-    return <div>{`${prevPage} > ${currentPage}`}</div>;
+    const [prevPage, setPrevPage] = useState<string>('');
+    const [currentPage, setCurrentPage] = useState<string>('');
+
+    useEffect(() => {
+        setPrevPage(breadCrumbsSelector.prev);
+        setCurrentPage(breadCrumbsSelector.current);
+    }, [breadCrumbsSelector]);
+
+    // const [state, setState] = useState({ prev: '', current: '' });
+
+    // useEffect(() => {
+    //     setState({ prev: breadCrumbsSelector.current});
+    //     console.log(breadCrumbsSelector);
+    // }, [breadCrumbsSelector]);
+
+    return (
+        <div className="flex">
+            {prevPage !== '' && (
+                <ul className="flex mx-4 pt-4 items-center overflow-x-auto whitespace-nowrap text-sm pb-3">
+                    <li className="flex ">{prevPage}</li>
+
+                    <li
+                        className='flex before:content-[""] 
+                        before:self-center
+                        before:w-2
+                        before:h-2
+                        before:border-t-2
+                        before:border-r-2
+                        before:border-gray-300
+                        before:rotate-45
+                        before:ml-2
+                        before:mr-4
+                        '
+                    >
+                        {currentPage}
+                    </li>
+                </ul>
+            )}
+        </div>
+    );
 };
 
-export default CurrentPage;
+export default BreadCrumbs;

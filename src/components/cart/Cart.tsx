@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import products from '@/product.json';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import FilledCart from './FilledCart';
 import EmptyCart from './EmptyCart';
 
 import { Iproduct, Icart } from '@/interface/interface';
 import BuyCart from './BuyCart';
+import { setbreadCrumbsReducer } from '@/store/breadCrumbsSlice';
 
 const Cart: React.FC = () => {
     const [totalProductsPrice, setTotalProductPrice] = useState<number>(0);
+    const dispatch = useDispatch();
 
     const productSelector = useSelector((state: Icart) => state.cart);
     let distinctionList: Iproduct[] = [];
     let sum = 0;
 
-    useEffect(() => {});
+    // 리덕스에 저장된 데이터와 json 파일의 데이터중 일치하는 데이터를 배열에 저장
     for (const product of products) {
         for (const cartProduct of productSelector) {
             if (product.id === cartProduct.id) {
@@ -23,6 +25,7 @@ const Cart: React.FC = () => {
         }
     }
 
+    // 총 금액 계산
     useEffect(() => {
         distinctionList.map((item: Iproduct) => {
             if (item) {
@@ -34,6 +37,16 @@ const Cart: React.FC = () => {
             setTotalProductPrice(0);
         }
     }, [productSelector, distinctionList]);
+
+    // 이동 경로 처리
+    useEffect(() => {
+        dispatch(
+            setbreadCrumbsReducer({
+                prev: '홈',
+                current: '장바구니',
+            })
+        );
+    }, []);
 
     return (
         <div>

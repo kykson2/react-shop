@@ -14,6 +14,7 @@ import Product from '@/components/product/Product';
 import { getStoregyCartListReducer } from '@/store/cartSlice';
 import { IgetStorageCartList } from '@/interface/interface';
 import Footer from './footer/footer';
+import BreadCrumbs from './breadCrumb/BreadCrumbs';
 
 const App = () => {
     const getItem = localStorage.getItem('cart');
@@ -28,9 +29,11 @@ const App = () => {
 
     return (
         <div className={'w-full h-full dark:bg-slate-800'}>
-            {/* 네비게이션 바 */}
             <Router>
+                {/* 네비게이션 바 */}
                 <NavBar />
+                {/* 이동 경로 */}
+                <BreadCrumbs />
                 <div className="relative">
                     <Routes>
                         <Route path="/" element={<MainPage />} />

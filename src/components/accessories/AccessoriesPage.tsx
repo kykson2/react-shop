@@ -1,5 +1,7 @@
 import ProductsList from '@/components/product/ProductsList';
-import { FC } from 'react';
+import { setbreadCrumbsReducer } from '@/store/breadCrumbsSlice';
+import { FC, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 interface Ilimit {
     limit?: number;
@@ -7,6 +9,16 @@ interface Ilimit {
 
 const AccessoriesPage: FC<Ilimit> = ({ limit }) => {
     const category: string = 'jewelery';
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(
+            setbreadCrumbsReducer({
+                prev: '홈',
+                current: '악세서리',
+            })
+        );
+    }, []);
 
     return (
         <div>
