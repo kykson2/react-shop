@@ -13,7 +13,7 @@ import Product from '@/components/product/Product';
 
 import { getStoregyCartListReducer } from '@/store/cartSlice';
 import { IgetStorageCartList } from '@/interface/interface';
-import Footer from './footer/footer';
+import Footer from './footer/Footer';
 import BreadCrumbs from './breadCrumb/BreadCrumbs';
 
 const App = () => {
