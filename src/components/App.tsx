@@ -13,8 +13,8 @@ import Product from '@/components/product/Product';
 
 import { getStoregyCartListReducer } from '@/store/cartSlice';
 import { IgetStorageCartList } from '@/interface/interface';
-import Footer from './footer/Footer';
-import BreadCrumbs from './breadCrumb/BreadCrumbs';
+import Footer from '@/components/footer/Footer';
+import BreadCrumbs from '@/components/breadCrumb/BreadCrumbs';
 
 const App = () => {
     const getItem = localStorage.getItem('cart');
