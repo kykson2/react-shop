@@ -4,7 +4,6 @@ import * as FiIcons from 'react-icons/fi';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import CarouselData from '@/components/main/carousel/CarouselData';
-import a from '@/image/img_shop_fashion.jpeg';
 
 const MainPageCarousel: React.FC = () => (
     <Carousel
