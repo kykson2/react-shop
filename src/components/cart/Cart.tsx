@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import products from '@/product.json';
 import { useDispatch, useSelector } from 'react-redux';
-import FilledCart from './FilledCart';
-import EmptyCart from './EmptyCart';
+import FilledCart from '@/components/cart/FilledCart';
+import EmptyCart from '@/components/cart/EmptyCart';
 
 import { Iproduct, Icart } from '@/interface/interface';
-import BuyCart from './BuyCart';
+import BuyCart from '@/components/cart/BuyCart';
 import { setbreadCrumbsReducer } from '@/store/breadCrumbsSlice';
 
 const Cart: React.FC = () => {

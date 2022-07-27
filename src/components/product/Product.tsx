@@ -1,9 +1,10 @@
-import { setProductReducer } from '@/store/cartSlice';
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import StarsRating from 'react-star-ratings';
-import { IbreadCrumbsSelector, Istate } from '@/interface/interface';
+
+import { setProductReducer } from '@/store/cartSlice';
+import { Istate } from '@/interface/interface';
 import { setbreadCrumbsReducer } from '@/store/breadCrumbsSlice';
 
 const Product: React.FC = () => {

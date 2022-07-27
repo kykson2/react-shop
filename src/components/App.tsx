@@ -10,11 +10,11 @@ import DigitalPage from '@/components/digital/DigitalPage';
 import Cart from '@/components/cart/Cart';
 import ErrorPage from '@/components/error/ErrorPage';
 import Product from '@/components/product/Product';
+import BreadCrumbs from '@/components/breadCrumb/BreadCrumbs';
+import Footer from '@/components/footer/Footer';
 
 import { getStoregyCartListReducer } from '@/store/cartSlice';
 import { IgetStorageCartList } from '@/interface/interface';
-import BreadCrumbs from '@/components/breadCrumb/BreadCrumbs';
-import Footer from '@/components/footer/Footer';
 
 const App = () => {
     const getItem = localStorage.getItem('cart');
