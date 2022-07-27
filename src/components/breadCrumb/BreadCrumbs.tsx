@@ -15,17 +15,10 @@ const BreadCrumbs: React.FC = () => {
         setCurrentPage(breadCrumbsSelector.current);
     }, [breadCrumbsSelector]);
 
-    // const [state, setState] = useState({ prev: '', current: '' });
-
-    // useEffect(() => {
-    //     setState({ prev: breadCrumbsSelector.current});
-    //     console.log(breadCrumbsSelector);
-    // }, [breadCrumbsSelector]);
-
     return (
-        <div className="flex">
+        <>
             {prevPage !== '' && (
-                <ul className="flex mx-4 pt-4 items-center overflow-x-auto whitespace-nowrap text-sm pb-3">
+                <ul className="flex mx-4 pt-6 items-center overflow-x-auto whitespace-nowrap text-sm pb-3">
                     <li className="flex ">{prevPage}</li>
 
                     <li
@@ -45,7 +38,7 @@ const BreadCrumbs: React.FC = () => {
                     </li>
                 </ul>
             )}
-        </div>
+        </>
     );
 };
 

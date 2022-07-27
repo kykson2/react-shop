@@ -7,7 +7,7 @@ import SideBarData from '@/components/navigation/SideBarData';
 
 import useOnOff from '@/hook/useOnOff';
 import useDarkMode from '@/hook/useDarkMode';
-import { Icart } from '@/interface/interface';
+import { IbreadCrumbsSelector, Icart } from '@/interface/interface';
 import { useSelector } from 'react-redux';
 
 const NavBar: React.FC = () => {
@@ -38,6 +38,10 @@ const NavBar: React.FC = () => {
         setTheme(colorTheme);
         colorTheme === 'light' ? setDarkMode(true) : setDarkMode(false);
     };
+
+    const breadCrumbsSelector = useSelector(
+        (state: IbreadCrumbsSelector) => state.breadCrumbs
+    );
 
     return (
         <div className="w-full h-16 z-20">
@@ -75,26 +79,28 @@ const NavBar: React.FC = () => {
                             >
                                 <AiIcons.AiOutlineSearch className="w-6 h-6 m-auto" />
                             </button>
-                            <input
-                                type="text"
-                                className={
-                                    searchOnOff
-                                        ? 'fixed transition-all w-full h-14 left-0 bg-gray-600 text-gray-200 top-16 duration-200 z-20'
-                                        : 'fixed transition-all w-full h-14 left-0 bg-gray-600 text-gray-100 -top-full duration-200 -z-10'
-                                }
-                                placeholder="검색"
-                            />
+                            <form action="submit">
+                                <input
+                                    type="text"
+                                    className={
+                                        searchOnOff
+                                            ? 'sm:fixed transition-all w-full h-14 left-0 bg-gray-600 text-gray-200 top-16 duration-200 z-20'
+                                            : 'fixed transition-all w-full h-14 left-0 bg-gray-600 text-gray-100 -top-full duration-200 -z-10'
+                                    }
+                                    placeholder="검색"
+                                />
+                            </form>
+                            <Link to="/cart">
+                                <div className="nav-cart icon-box relative">
+                                    <BsIcons.BsHandbag className="w-6 h-6 m-auto" />
+                                </div>
+                                <div className="absolute flex top-0 right-1 w-5 h-5 bg-red-500 text-white rounded-full">
+                                    <p className="flex items-center mx-auto">
+                                        {totalProductsPrice}
+                                    </p>
+                                </div>
+                            </Link>
                         </div>
-                        <Link to="/cart">
-                            <div className="nav-cart icon-box relative">
-                                <BsIcons.BsHandbag className="w-6 h-6 m-auto" />
-                            </div>
-                            <div className="absolute flex top-0 right-1 w-5 h-5 bg-red-500 text-white rounded-full">
-                                <p className="flex items-center mx-auto">
-                                    {totalProductsPrice}
-                                </p>
-                            </div>
-                        </Link>
                     </div>
                 </div>
             </div>

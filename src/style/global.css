@@ -41,4 +41,8 @@
     .cart-buy-modal {
         @apply fixed w-full h-52 bg-slate-700 text-gray-100 font-bold bottom-0 pl-4 py-2 z-50 rounded-t-2xl;
     }
+
+    .footer-icons {
+        @apply flex border w-12 h-8 rounded-sm bg-white items-center justify-center;
+    }
 }

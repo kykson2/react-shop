@@ -10,7 +10,11 @@ module.exports = {
             xl: '1280px',
             xl2: '1360px',
         },
-        extend: {},
+        extend: {
+            spacing: {
+                640: '40rem',
+            },
+        },
     },
 
     plugins: [],
