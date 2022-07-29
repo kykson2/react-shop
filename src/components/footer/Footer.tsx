@@ -15,10 +15,8 @@ const Footer: FC = () => {
                     <ul className="flex items-center gap-2 mt-7">
                         <li className="footer-icons">
                             <svg
-                                width="px"
-                                height="px"
                                 viewBox="0 -140 780 780"
-                                enable-background=""
+                                enableBackground="new 0 0 32 20"
                                 version="1.1"
                                 xmlSpace="preserve"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +33,7 @@ const Footer: FC = () => {
                         </li>
                         <li className="footer-icons">
                             <svg
-                                enable-background="new 0 0 32 20"
+                                enableBackground="new 0 0 32 20"
                                 height="20"
                                 overflow="visible"
                                 viewBox="0 0 32 20"
@@ -66,7 +64,7 @@ const Footer: FC = () => {
                         </li>
                         <li className="footer-icons">
                             <svg
-                                enable-background="new 0 0 40 40"
+                                enableBackground="new 0 0 40 40"
                                 version="1.1"
                                 viewBox="0 0 40 40"
                                 xmlSpace="preserve"
@@ -82,20 +80,20 @@ const Footer: FC = () => {
                                         <g id="Amex">
                                             <g>
                                                 <path
-                                                    clip-rule="evenodd"
+                                                    clipRule="evenodd"
                                                     d="M34,9.5H6c-1.1,0-2,0.9-2,2v17c0,1.1,0.9,2,2,2h28      c1.1,0,2-0.9,2-2v-17C36,10.4,35.1,9.5,34,9.5z"
                                                     fill="#3498D8"
-                                                    fill-rule="evenodd"
+                                                    fillRule="evenodd"
                                                 />
                                             </g>
                                         </g>
                                         <g id="Amex_1_">
                                             <g>
                                                 <path
-                                                    clip-rule="evenodd"
+                                                    clipRule="evenodd"
                                                     d="M10.7,20.3h1.6l-0.8-2L10.7,20.3z M33,16.5h-4.1l-1,1.1      l-0.9-1.1h-8.7l-0.8,1.8l-0.8-1.8h-3.5v0.8l-0.4-0.8h-3l-2.9,7h3.5l0.4-1.1h1l0.4,1.1h3.9v-0.8l0.3,0.8h2l0.3-0.9v0.9h8l1-1.1      l0.9,1.1l4.1,0L30.1,20L33,16.5z M20.9,22.5h-1.1l0-3.9l-1.7,3.9h-1l-1.7-3.9v3.9h-2.3l-0.4-1.1h-2.4l-0.4,1.1H8.6l2.1-5h1.7      l1.9,4.7v-4.7h1.9l1.5,3.4l1.4-3.4h1.9V22.5z M30.8,22.5h-1.5L28,20.8l-1.5,1.7h-4.5v-5h4.6l1.4,1.6l1.5-1.6h1.4L28.7,20      L30.8,22.5z M23.1,18.5v0.9h2.5v1h-2.5v1h2.8l1.3-1.5L26,18.5H23.1z"
                                                     fill="#FFFFFF"
-                                                    fill-rule="evenodd"
+                                                    fillRule="evenodd"
                                                 />
                                             </g>
                                         </g>
@@ -133,7 +131,7 @@ const Footer: FC = () => {
                         <li className="footer-icons">
                             <svg
                                 height="20px"
-                                enable-background="new 0 0 512 512"
+                                enableBackground="new 0 0 512 512"
                                 version="1.1"
                                 viewBox="0 0 512 512"
                                 width="28px"
@@ -170,10 +168,10 @@ const Footer: FC = () => {
                                 <defs />
                                 <g
                                     fill="none"
-                                    fill-rule="evenodd"
+                                    fillRule="evenodd"
                                     id="round-rect"
                                     stroke="none"
-                                    stroke-width="1"
+                                    strokeWidth="1"
                                 >
                                     <g id="dinner_club">
                                         <path
@@ -249,7 +247,7 @@ const Footer: FC = () => {
                         <li className="footer-icons">
                             <svg
                                 height="40px"
-                                enable-background="new 0 0 512 512"
+                                enableBackground="new 0 0 512 512"
                                 version="1.1"
                                 viewBox="0 0 512 512"
                                 width="38px"
@@ -297,7 +295,7 @@ const Footer: FC = () => {
                         <li>
                             <a href="https://www.facebook.com/" target="_blank">
                                 <svg
-                                    enable-background="new 0 0 56.693 56.693"
+                                    enableBackground="new 0 0 56.693 56.693"
                                     height="22px"
                                     id="Layer_1"
                                     version="1.1"
@@ -324,7 +322,7 @@ const Footer: FC = () => {
                                     width="27px"
                                     y="25px"
                                     viewBox="0 0 56.7 56.7"
-                                    enable-background="new 0 0 56.7 56.7"
+                                    enableBackground="new 0 0 56.7 56.7"
                                     xmlSpace="preserve"
                                 >
                                     <g>
@@ -351,7 +349,7 @@ const Footer: FC = () => {
                                 <svg
                                     height="27px"
                                     id="Layer_1"
-                                    enable-background="new 0 0 512 512"
+                                    enableBackground="new 0 0 512 512"
                                     version="1.1"
                                     viewBox="0 0 512 512"
                                     width="27px"

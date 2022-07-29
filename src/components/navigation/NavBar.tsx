@@ -9,6 +9,7 @@ import useOnOff from '@/hook/useOnOff';
 import useDarkMode from '@/hook/useDarkMode';
 import { IbreadCrumbsSelector, Icart } from '@/interface/interface';
 import { useSelector } from 'react-redux';
+import Search from './Search';
 
 const NavBar: React.FC = () => {
     const [sideBarOnOff, sideBarOnOffHandler, sideBarOffHandler] = useOnOff();
@@ -79,17 +80,8 @@ const NavBar: React.FC = () => {
                             >
                                 <AiIcons.AiOutlineSearch className="w-6 h-6 m-auto" />
                             </button>
-                            <form action="submit">
-                                <input
-                                    type="text"
-                                    className={
-                                        searchOnOff
-                                            ? 'sm:fixed transition-all w-full h-14 left-0 bg-gray-600 text-gray-200 top-16 duration-200 z-20'
-                                            : 'fixed transition-all w-full h-14 left-0 bg-gray-600 text-gray-100 -top-full duration-200 -z-10'
-                                    }
-                                    placeholder="검색"
-                                />
-                            </form>
+
+                            <Search searchOnOff={searchOnOff} />
                             <Link to="/cart">
                                 <div className="nav-cart icon-box relative">
                                     <BsIcons.BsHandbag className="w-6 h-6 m-auto" />
