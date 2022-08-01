@@ -39,7 +39,7 @@
     }
 
     .cart-buy-modal {
-        @apply fixed w-full h-52 bg-slate-700 text-gray-100 font-bold bottom-0 pl-4 py-2 z-50 rounded-t-2xl;
+        @apply fixed w-full h-52 bg-slate-700 text-gray-100 font-bold bottom-0 pl-4 py-2 z-50 rounded-3xl   md:w-[512px] md:h-80 md:m-auto md:left-1/2 md:-translate-x-2/4 md:top-1/2 md:-translate-y-2/4 md:rounded;
     }
 
     .footer-icons {

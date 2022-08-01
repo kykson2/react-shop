@@ -18,7 +18,7 @@ const BreadCrumbs: React.FC = () => {
     return (
         <>
             {prevPage !== '' && (
-                <ul className="flex mx-4 pt-6 items-center overflow-x-auto whitespace-nowrap text-sm pb-3">
+                <ul className="flex mx-12 pt-6 items-center overflow-x-auto whitespace-nowrap text-sm pb-3 dark:text-gray-400">
                     <li className="flex ">{prevPage}</li>
 
                     <li

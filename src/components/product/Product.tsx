@@ -95,24 +95,24 @@ const Product: React.FC = () => {
     }, [productDetail, category]);
 
     return (
-        <div className="">
-            <div className="flex product-detail-image w-80 h-80 bg-white mt-4 m-auto rounded-xl mb-6">
+        <div className="lg:flex">
+            <div className="flex product-detail-image w-80 h-80 bg-white mt-4 m-auto rounded-xl mb-6 lg:ml-12 lg:mt-14">
                 <img
                     src={productDetail.product.image}
                     alt={productDetail.product.title}
-                    className="flex p-14 max-w-full max-h-full m-auto"
+                    className="p-6 max-w-full max-h-full m-auto"
                 ></img>
             </div>
-            <div className="relative flex flex-col">
+            <div className="relative lg:w-9/12 lg:ml-2 lg:mt-12">
                 <div className="product-detail-title mt-4">
-                    <p className="flex px-10 font-semibold text-xl">
+                    <p className="flex px-10 font-semibold text-xl lg:text-2xl dark:text-gray-400">
                         {productDetail.product.title}
                         <span className="flex h-5 p-2 text-center ml-4 font-bold text-sm text-white rounded-xl items-center self-center bg-green-400">
                             NEW
                         </span>
                     </p>
                 </div>
-                <div className="product-detail-description flex items-center mt-4">
+                <div className="product-detail-description flex items-center mt-4 lg:text-base dark:text-gray-400">
                     <p className="px-10">{productDetail.product.description}</p>
                 </div>
                 <div className="rating-star-area px-9 pt-3">
@@ -123,13 +123,13 @@ const Product: React.FC = () => {
                             starDimension="25px"
                             starSpacing="2px"
                         />
-                        <span className="px-4 self-center text-base font-medium text-gray-700">
+                        <span className="flex px-4 self-center text-base font-medium text-gray-700 dark:text-gray-400">
                             {productDetail.product.rating.rate} /
                             {productDetail.product.rating.count} 참여
                         </span>
                     </div>
                 </div>
-                <div className="flex pl-9 pt-3 font-semibold text-3xl">
+                <div className="flex pl-9 pt-3 font-semibold text-3xl dark:text-gray-400">
                     ${Math.round(productDetail.product.price)}
                 </div>
                 <div className="flex ml-9 mt-3 mb-10">
@@ -151,7 +151,7 @@ const Product: React.FC = () => {
                     <Link
                         to={'/cart'}
                         type="button"
-                        className="product-button bg-white text-black border-2 border-black"
+                        className="product-button bg-white text-black border-2 border-black dark:text-gray-400 dark:bg-inherit dark:border-gray-400"
                     >
                         장바구니로 이동
                     </Link>

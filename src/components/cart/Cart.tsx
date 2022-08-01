@@ -49,8 +49,8 @@ const Cart: React.FC = () => {
     }, []);
 
     return (
-        <div>
-            <div className="mt-8 ml-5">
+        <div className="w-full h-full">
+            <div className="mt-8 ml-5 w-full h-full">
                 {distinctionList.length === 0 ? (
                     <EmptyCart />
                 ) : (
@@ -60,8 +60,8 @@ const Cart: React.FC = () => {
                     />
                 )}
             </div>
-            <div className="mt-8 ml-5 w-80 items-center ">
-                <span className="text-xl mb-4 items-center">
+            <div className="flex mt-8 ml-5 w-80 items-center lg:absolute lg:right-0 lg:w-64">
+                <span className="flex text-2xl">
                     총 : ${Math.round(totalProductsPrice)}
                 </span>
             </div>

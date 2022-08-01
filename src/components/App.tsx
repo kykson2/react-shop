@@ -34,7 +34,7 @@ const App = () => {
                 <NavBar />
                 {/* 이동 경로 */}
                 <BreadCrumbs />
-                <div className="relative">
+                <div className="relative w-full h-full">
                     <Routes>
                         <Route path="/" element={<MainPage />} />
                         <Route path="fashion" element={<FashionPage />} />

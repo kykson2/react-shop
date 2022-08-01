@@ -13,6 +13,12 @@ module.exports = {
         extend: {
             spacing: {
                 640: '40rem',
+                '60px': '60px',
+                '512px': '512px',
+            },
+            transitionDuration: {
+                0: '0ms',
+                2000: '2000ms',
             },
         },
     },

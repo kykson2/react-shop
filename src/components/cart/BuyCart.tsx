@@ -50,7 +50,7 @@ const Buy: FC = () => {
                         </div>
                     </div>
                 ) : (
-                    <div className="cart-buy-modal transition-all duration-200 -bottom-full"></div>
+                    <div className="cart-buy-modal transition-all duration-200 -bottom-full md:top-0 md:bottom-full md:duration-[0ms]"></div>
                 )}
             </div>
             <label

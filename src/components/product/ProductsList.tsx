@@ -30,7 +30,7 @@ const ProductsList: React.FC<Icategory> = ({ category, limit }) => {
     return (
         <div className="sm:flex md:grid lg:grid ">
             {limit ? (
-                <div className="flex overflow-x-auto md:grid grid-cols-2 xl:grid-cols-4">
+                <div className="flex overflow-x-auto md:grid grid-cols-2 lg:grid-cols-4">
                     {distinctionList.slice(0, limit).map(
                         (item: Iproduct) =>
                             item.category.includes(category) && (
@@ -38,7 +38,7 @@ const ProductsList: React.FC<Icategory> = ({ category, limit }) => {
                                     to={`/product/${item.id}`}
                                     state={{ product: item }}
                                     key={item.id}
-                                    className="flex lg:flex flex-col border-2 bg-white rounded-xl flex-1  dark:border-slate-700 group m-4"
+                                    className="flex flex-col border dark:border-1 bg-white rounded-xl flex-1 dark:border-0 dark:border-slate-700 group m-4"
                                 >
                                     <div className="product-image-area">
                                         <div className="flex m-auto h-80 ">
@@ -70,7 +70,7 @@ const ProductsList: React.FC<Icategory> = ({ category, limit }) => {
                                     to={`/product/${item.id}`}
                                     state={{ product: item }}
                                     key={item.id}
-                                    className="flex flex-col border-2 bg-white rounded-xl flex-1 dark:border-slate-700 group m-4"
+                                    className="flex flex-col border-1 bg-white rounded-xl flex-1 dark:border-slate-700 group m-4"
                                 >
                                     <div className="product-image-area">
                                         <div className="flex m-auto h-80 ">

@@ -45,11 +45,11 @@ const NavBar: React.FC = () => {
     );
 
     return (
-        <div className="w-full h-16 z-20">
+        <div className="relative w-full h-16 z-20">
             <div className="fixed w-full h-16 z-20 shadow-xl">
                 <div className="nav-bar flex relative h-16 p-2   items-center bg-white dark:bg-neutral-900 dark:text-white">
                     <button
-                        className="flex w-10 h-10 items-center"
+                        className="flex w-10 h-10 items-center md:hidden"
                         type="button"
                         onClick={sideBarOnOffHandler}
                     >
@@ -60,7 +60,7 @@ const NavBar: React.FC = () => {
                         <Link to="/">React Shop</Link>
                     </h1>
 
-                    <div className="flex absolute right-0 mr-2">
+                    <div className="flex absolute right-0 mr-7">
                         <div
                             role="presentation"
                             className="flex transition icon-darkmode rotate-45 icon-box"
@@ -73,18 +73,20 @@ const NavBar: React.FC = () => {
                             )}
                         </div>
                         <div className="flex">
-                            <button
-                                type="button"
-                                className="nav-search icon-box hover:bg-gray-700"
-                                onClick={searchOnOffHandler}
-                            >
-                                <AiIcons.AiOutlineSearch className="w-6 h-6 m-auto" />
-                            </button>
+                            <div className="sm:relative sm:w-52 sm:mr-2">
+                                <button
+                                    type="button"
+                                    className="nav-search icon-box hover:sm:bg-gray-700"
+                                    onClick={searchOnOffHandler}
+                                >
+                                    <AiIcons.AiOutlineSearch className="w-6 h-6 m-auto sm:hidden" />
+                                </button>
 
-                            <Search
-                                searchOnOff={searchOnOff}
-                                searchOnOffHandler={searchOnOffHandler}
-                            />
+                                <Search
+                                    searchOnOff={searchOnOff}
+                                    searchOnOffHandler={searchOnOffHandler}
+                                />
+                            </div>
                             <Link to="/cart">
                                 <div className="nav-cart icon-box relative">
                                     <BsIcons.BsHandbag className="w-6 h-6 m-auto" />
@@ -100,17 +102,18 @@ const NavBar: React.FC = () => {
                 </div>
             </div>
             <nav
-                className={
+                className={`${
                     sideBarOnOff
                         ? 'nav-side-menu left-0 bg-blend-screen'
                         : 'nav-side-menu '
                 }
+                         md:fixed md:w-80 md:h-10 md:-top-1  z-40 md:left-24 md:bg-inherit `}
             >
-                <ul className="nav-side-menu-items">
+                <ul className="nav-side-menu-items md:flex ">
                     {SideBarData.map((item) => (
                         <li key={item.id} className={`${item.cName} px-4 py-3`}>
                             <Link to={item.path} onClick={sideBarOnOffHandler}>
-                                <span className="font-medium text-gray-100">
+                                <span className="font-medium text-gray-100 md:font-bold md:text-black md:dark:text-white">
                                     {item.title}
                                 </span>
                             </Link>
@@ -121,11 +124,12 @@ const NavBar: React.FC = () => {
             <label
                 role="presentation"
                 aria-label="Freege when sidebar is active"
-                className={
+                className={`${
                     sideBarOnOff
                         ? 'fixed transition w-full h-screen top-0 bg-gray-700 bg-opacity-75 duration-700 z-20'
                         : 'transition w-full h-screen duration-700'
-                }
+                } md:hidden
+                        `}
                 onClick={sideBarOffHandler}
             />
         </div>

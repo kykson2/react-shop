@@ -6,7 +6,7 @@ const Footer: FC = () => {
             <footer className="footer flex flex-col items-center mt-28 pt-10 bg-slate-100">
                 <a
                     className="text-sm font-medium"
-                    href="https://zero-base.co.kr/"
+                    href="https://github.com/kykson2"
                     target="_blank"
                 >
                     김관우
