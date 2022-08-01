@@ -45,4 +45,8 @@
     .footer-icons {
         @apply flex border w-12 h-8 rounded-sm bg-white items-center justify-center;
     }
+
+    .category {
+        @apply pt-8 pb-2 text-center text-3xl font-bold dark:text-white;
+    }
 }

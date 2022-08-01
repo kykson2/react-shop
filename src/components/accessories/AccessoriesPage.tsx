@@ -22,9 +22,7 @@ const AccessoriesPage: FC<Ilimit> = ({ limit }) => {
 
     return (
         <div>
-            <div className="pt-4 text-center text-3xl font-bold dark:text-white">
-                악세서리
-            </div>
+            <div className="category">악세서리</div>
             <ProductsList category={category} limit={limit} />
         </div>
     );

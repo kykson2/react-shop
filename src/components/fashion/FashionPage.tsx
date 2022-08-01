@@ -23,9 +23,7 @@ const FashionPage: FC<Ilimit> = ({ limit }) => {
 
     return (
         <div>
-            <div className="pt-4 text-center text-3xl font-bold dark:text-white">
-                패션
-            </div>
+            <div className="category">패션</div>
             <ProductsList category={category} limit={limit} />
         </div>
     );

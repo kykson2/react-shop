@@ -4,11 +4,18 @@ import { Link, useLocation } from 'react-router-dom';
 import StarsRating from 'react-star-ratings';
 
 import { setProductReducer } from '@/store/cartSlice';
-import { Istate } from '@/interface/interface';
+import { Iproduct, Istate } from '@/interface/interface';
 import { setbreadCrumbsReducer } from '@/store/breadCrumbsSlice';
+
+import products from '@/product.json';
 
 const Product: React.FC = () => {
     const location = useLocation();
+
+    const path = location.pathname;
+    const pathSplit = path.split('/product/');
+    const productNumber = Number(pathSplit[1]);
+
     const dispatch = useDispatch();
     const [productDetail, setProductDetail] = useState<Istate>({
         product: {
@@ -28,25 +35,46 @@ const Product: React.FC = () => {
     const [category, setCategory] = useState<string>('');
 
     // 선택된 상품의 자세한 정보를 가져온다
+    // useEffect(() => {
+    //     if (location.state) {
+    //         let __state = location.state as Istate;
+    //         setProductDetail({
+    //             product: {
+    //                 id: __state.product.id,
+    //                 title: __state.product.title,
+    //                 price: __state.product.price,
+    //                 description: __state.product.description,
+    //                 category: __state.product.category,
+    //                 image: __state.product.image,
+    //                 rating: {
+    //                     rate: __state.product.rating?.rate,
+    //                     count: __state.product.rating?.count,
+    //                 },
+    //             },
+    //         });
+    //     }
+    // }, [location.state]);
+
     useEffect(() => {
-        if (location.state) {
-            let __state = location.state as Istate;
-            setProductDetail({
-                product: {
-                    id: __state.product.id,
-                    title: __state.product.title,
-                    price: __state.product.price,
-                    description: __state.product.description,
-                    category: __state.product.category,
-                    image: __state.product.image,
-                    rating: {
-                        rate: __state.product.rating?.rate,
-                        count: __state.product.rating?.count,
+        products.map(
+            (item: Iproduct) =>
+                Number(item.id) === productNumber &&
+                setProductDetail({
+                    product: {
+                        id: item.id,
+                        title: item.title,
+                        price: item.price,
+                        description: item.description,
+                        category: item.category,
+                        image: item.image,
+                        rating: {
+                            rate: item.rating.rate,
+                            count: item.rating.count,
+                        },
                     },
-                },
-            });
-        }
-    }, [location.state]);
+                })
+        );
+    }, [productNumber]);
 
     useEffect(() => {
         if (productDetail.product.category.includes('clothing')) {

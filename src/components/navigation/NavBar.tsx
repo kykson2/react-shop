@@ -81,7 +81,10 @@ const NavBar: React.FC = () => {
                                 <AiIcons.AiOutlineSearch className="w-6 h-6 m-auto" />
                             </button>
 
-                            <Search searchOnOff={searchOnOff} />
+                            <Search
+                                searchOnOff={searchOnOff}
+                                searchOnOffHandler={searchOnOffHandler}
+                            />
                             <Link to="/cart">
                                 <div className="nav-cart icon-box relative">
                                     <BsIcons.BsHandbag className="w-6 h-6 m-auto" />

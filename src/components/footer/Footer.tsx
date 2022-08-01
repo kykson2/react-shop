@@ -9,7 +9,7 @@ const Footer: FC = () => {
                     href="https://zero-base.co.kr/"
                     target="_blank"
                 >
-                    제로베이스
+                    김관우
                 </a>
                 <div>
                     <ul className="flex items-center gap-2 mt-7">
