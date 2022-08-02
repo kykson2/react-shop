@@ -46,8 +46,8 @@ const NavBar: React.FC = () => {
 
     return (
         <div className="relative w-full h-16 z-20">
-            <div className="fixed w-full h-16 z-20 shadow-xl">
-                <div className="nav-bar flex relative h-16 p-2   items-center bg-white dark:bg-neutral-900 dark:text-white">
+            <div className="fixed w-full h-16 z-20 shadow-xl ">
+                <div className="nav-bar flex relative h-16 p-2   items-center bg-white dark:bg-neutral-900 dark:text-white overflow-x-auto">
                     <button
                         className="flex w-10 h-10 items-center md:hidden"
                         type="button"
@@ -60,7 +60,7 @@ const NavBar: React.FC = () => {
                         <Link to="/">React Shop</Link>
                     </h1>
 
-                    <div className="flex absolute right-0 mr-7">
+                    <div className="flex absolute right-0 mr-2">
                         <div
                             role="presentation"
                             className="flex transition icon-darkmode rotate-45 icon-box"
@@ -104,10 +104,10 @@ const NavBar: React.FC = () => {
             <nav
                 className={`${
                     sideBarOnOff
-                        ? 'nav-side-menu left-0 bg-blend-screen'
-                        : 'nav-side-menu '
+                        ? 'nav-side-menu left-0 bg-blend-screen visible'
+                        : 'nav-side-menu invisible'
                 }
-                         md:fixed md:w-80 md:h-10 md:-top-1  z-40 md:left-24 md:bg-inherit `}
+                         md:fixed md:w-80 md:h-10 md:-top-1 z-50 md:left-24 md:bg-inherit md:visible md:${sideBarOffHandler}`}
             >
                 <ul className="nav-side-menu-items md:flex ">
                     {SideBarData.map((item) => (

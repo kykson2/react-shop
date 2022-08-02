@@ -44,7 +44,6 @@ const Search: FC<ISearch> = ({ searchOnOff, searchOnOffHandler }) => {
 
     // 결과 값 영역 외 클릭 시 결과값 창 끄기
     const onOffHandler = (e: Event) => {
-        e.target;
         if (
             isOpen &&
             e.target &&
@@ -66,7 +65,7 @@ const Search: FC<ISearch> = ({ searchOnOff, searchOnOffHandler }) => {
         return () => {
             window.removeEventListener('click', onOffHandler);
         };
-    }, []);
+    }, [isOpen]);
 
     return (
         <div ref={el}>
@@ -75,10 +74,10 @@ const Search: FC<ISearch> = ({ searchOnOff, searchOnOffHandler }) => {
                     type="text"
                     className={`${
                         searchOnOff
-                            ? 'fixed transition-all w-full h-12 left-0 bg-gray-400 text-gray-200 top-16 p-2 duration-200 z-20 dark:bg-gray-600'
-                            : 'fixed transition-all w-full h-14 left-0 bg-gray-400 text-gray-100 dark:bg-gray-600 -top-full duration-200 -z-10'
+                            ? 'fixed transition-all w-full h-12 left-0 bg-gray-400 text-gray-600 top-16 p-2 duration-200 z-20 dark:bg-gray-600'
+                            : 'fixed transition-all w-full h-14 left-0 bg-gray-400 text-gray-600 dark:bg-gray-600 -top-full duration-200 -z-10'
                     }
-                            sm:absolute sm:w-52 sm:h-10 sm:top-0 sm:dark:bg-gray-600 sm:left-0 sm:z-20 sm:rounded-sm p-2 text-black dark:text-gray-200`}
+                            sm:absolute sm:w-52 sm:h-10 sm:top-0 sm:dark:bg-gray-600 sm:left-0 sm:z-30 sm:rounded-sm p-2 text-gray-800  bg-gray-200 dark:text-gray-400`}
                     placeholder="검색"
                     onClick={searchClickHandler}
                     onChange={searchHandler}

@@ -39,7 +39,7 @@
     }
 
     .cart-buy-modal {
-        @apply fixed w-full h-52 bg-slate-700 text-gray-100 font-bold bottom-0 pl-4 py-2 z-50 rounded-3xl   md:w-[512px] md:h-80 md:m-auto md:left-1/2 md:-translate-x-2/4 md:top-1/2 md:-translate-y-2/4 md:rounded;
+        @apply fixed w-full h-52 bg-white dark:bg-slate-700 shadow-xl dark:text-gray-100 z-50 font-bold bottom-0 pl-4 py-2  rounded-t-3xl   md:w-[512px] md:h-56  md:inset-auto md:-translate-x-1/2 md:top-1/2 md:-translate-y-1/2 md:rounded;
     }
 
     .footer-icons {
@@ -47,6 +47,6 @@
     }
 
     .category {
-        @apply pt-8 pb-2 text-center text-3xl font-bold dark:text-white;
+        @apply pt-10 pb-2 text-center text-3xl font-bold  dark:text-white;
     }
 }

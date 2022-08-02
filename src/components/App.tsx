@@ -1,5 +1,10 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import {
+    BrowserRouter as Router,
+    Route,
+    Routes,
+    useLocation,
+} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import NavBar from '@/components/navigation/NavBar';
@@ -28,13 +33,13 @@ const App = () => {
     }
 
     return (
-        <div className={'w-full h-full dark:bg-slate-800'}>
+        <div className={'w-full h-full dark:bg-slate-800 overflow-x-auto'}>
             <Router>
                 {/* 네비게이션 바 */}
                 <NavBar />
                 {/* 이동 경로 */}
                 <BreadCrumbs />
-                <div className="relative w-full h-full">
+                <div className="relative w-full h-full pb-32">
                     <Routes>
                         <Route path="/" element={<MainPage />} />
                         <Route path="fashion" element={<FashionPage />} />
@@ -44,8 +49,8 @@ const App = () => {
                         />
                         <Route path="digital" element={<DigitalPage />} />
                         <Route path="cart" element={<Cart />} />
-                        <Route path="error" element={<ErrorPage />} />
                         <Route path="product/*" element={<Product />} />
+                        <Route path="/*" element={<ErrorPage />} />
                     </Routes>
                 </div>
                 <Footer />
