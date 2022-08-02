@@ -39,7 +39,7 @@
     }
 
     .cart-buy-modal {
-        @apply fixed w-full h-52 bg-white dark:bg-slate-700 shadow-xl dark:text-gray-100 z-50 font-bold bottom-0 pl-4 py-2  rounded-t-3xl   md:w-[512px] md:h-56  md:inset-auto md:-translate-x-1/2 md:top-1/2 md:-translate-y-1/2 md:rounded;
+        @apply fixed w-full h-52 bg-white dark:bg-slate-700 left-0 shadow-xl dark:text-gray-100 z-50 font-bold bottom-0 pl-4 py-2  rounded-t-3xl   md:w-[512px] md:h-56  md:m-auto md:top-1/2 md:-translate-y-full md:rounded;
     }
 
     .footer-icons {
