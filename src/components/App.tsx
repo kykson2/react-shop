@@ -17,6 +17,7 @@ import ErrorPage from '@/components/error/ErrorPage';
 import Product from '@/components/product/Product';
 import BreadCrumbs from '@/components/breadCrumb/BreadCrumbs';
 import Footer from '@/components/footer/Footer';
+import ScrollTop from './scrollTop/ScrollTop';
 
 import { getStoregyCartListReducer } from '@/store/cartSlice';
 import { IgetStorageCartList } from '@/interface/interface';
@@ -35,6 +36,7 @@ const App = () => {
     return (
         <div className={'w-full h-full dark:bg-slate-800 overflow-x-auto'}>
             <Router>
+                <ScrollTop />
                 {/* 네비게이션 바 */}
                 <NavBar />
                 {/* 이동 경로 */}
