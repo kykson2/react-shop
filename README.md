@@ -1,4 +1,5 @@
 # mini project - React shop
+---
 
 미니프로젝트로 쇼핑몰을 만들었습니다.
 ---
@@ -16,9 +17,9 @@
 vercel을 이용하여 배포하였으며 주소는 아래와 같습니다.
 
 [react-shop](https://project-shopping-mall.vercel.app/)
+
+
 ---
-
-
 ### 설명
 상품들을 장바구니에 담을 때 redux를 사용해 전역으로 관리할 수 있게 했고
 
