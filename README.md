@@ -2,6 +2,7 @@
 
 미니프로젝트로 쇼핑몰을 만들었습니다.
 
+### 사용한 기술
 사용한 기술 스택은 아래와 같습니다.
 ```
   const skill = [
@@ -11,6 +12,7 @@
   ]
 ```
 
+### 배포
 vercel을 이용하여 배포하였으며 주소는 아래와 같습니다.
 
 [react-shop](https://project-shopping-mall.vercel.app/)
