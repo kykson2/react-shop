@@ -34,13 +34,14 @@ const App = () => {
     }
 
     return (
-        <div className={'w-full h-full dark:bg-slate-800 overflow-x-auto'}>
+        <div className="w-full h-full dark:bg-slate-800 overflow-x-auto">
             <Router>
                 <ScrollTop />
                 {/* 네비게이션 바 */}
                 <NavBar />
                 {/* 이동 경로 */}
                 <BreadCrumbs />
+
                 <div className="relative w-full h-full pb-32">
                     <Routes>
                         <Route path="/" element={<MainPage />} />

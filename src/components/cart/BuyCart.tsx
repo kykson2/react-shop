@@ -7,8 +7,6 @@ const Buy: FC = () => {
     const [sideBarOnOff, sideBarOnOffHandler] = useOnOff();
     const dispatch = useDispatch();
 
-    const buyhandler = () => {};
-
     const purchaseHandler = (): void => {
         dispatch(removeCart());
         sideBarOnOffHandler();

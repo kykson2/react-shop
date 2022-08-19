@@ -5,6 +5,7 @@ import AccessoriesPage from '@/components/accessories/AccessoriesPage';
 import DigitalPage from '@/components/digital/DigitalPage';
 import { useDispatch } from 'react-redux';
 import { setbreadCrumbsReducer } from '@/store/breadCrumbsSlice';
+import HistoryView from '@/components/historyView/HistoryView';
 
 const MainPage: React.FC = () => {
     const dispatch = useDispatch();
@@ -24,6 +25,8 @@ const MainPage: React.FC = () => {
     return (
         <div className="mainpage-area">
             <MainPageCarousel />
+            {/* 미리 보기 */}
+            <HistoryView />
             <FashionPage limit={limit} />
             <AccessoriesPage limit={limit} />
             <DigitalPage limit={limit} />

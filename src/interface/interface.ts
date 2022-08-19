@@ -46,6 +46,16 @@ interface IbreadCrumbsSelector {
     breadCrumbs: IbreadCrumbsState;
 }
 
+interface IhistoryProductState {
+    id: number;
+    title: string;
+    image: string;
+}
+
+interface IhistoryProduct {
+    historyProduct: IhistoryProductState[];
+}
+
 export type {
     Iproduct,
     IcartState,
@@ -55,4 +65,6 @@ export type {
     IgetStorageCartList,
     IbreadCrumbsState,
     IbreadCrumbsSelector,
+    IhistoryProductState,
+    IhistoryProduct,
 };

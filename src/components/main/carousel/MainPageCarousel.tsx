@@ -13,7 +13,7 @@ const MainPageCarousel: React.FC = () => (
         showStatus={false}
         showThumbs={false}
         interval={7000}
-        className="relative w-full z-10 mb-10"
+        className="relative w-full z-10"
     >
         {CarouselData.map((item) => (
             <div key={item.alt}>

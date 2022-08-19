@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import StarsRating from 'react-star-ratings';
 
+import { addProduct } from '@/store/historyProductSlice';
+
 import { setProductReducer } from '@/store/cartSlice';
 import { Iproduct, Istate } from '@/interface/interface';
 import { setbreadCrumbsReducer } from '@/store/breadCrumbsSlice';
@@ -12,12 +14,13 @@ import ErrorPage from '../error/ErrorPage';
 
 const Product: React.FC = () => {
     const location = useLocation();
+    const dispatch = useDispatch();
 
+    // 주소 설정
     const path = location.pathname;
     const pathSplit = path.split('/product/');
     const productNumber = Number(pathSplit[1]);
 
-    const dispatch = useDispatch();
     const [productDetail, setProductDetail] = useState<Istate>({
         product: {
             id: 0,
@@ -34,27 +37,6 @@ const Product: React.FC = () => {
     });
 
     const [category, setCategory] = useState<string>('');
-
-    // 선택된 상품의 자세한 정보를 가져온다
-    // useEffect(() => {
-    //     if (location.state) {
-    //         let __state = location.state as Istate;
-    //         setProductDetail({
-    //             product: {
-    //                 id: __state.product.id,
-    //                 title: __state.product.title,
-    //                 price: __state.product.price,
-    //                 description: __state.product.description,
-    //                 category: __state.product.category,
-    //                 image: __state.product.image,
-    //                 rating: {
-    //                     rate: __state.product.rating?.rate,
-    //                     count: __state.product.rating?.count,
-    //                 },
-    //             },
-    //         });
-    //     }
-    // }, [location.state]);
 
     useEffect(() => {
         products.map(
@@ -98,6 +80,17 @@ const Product: React.FC = () => {
             })
         );
     }, [productDetail, category]);
+
+    // 한번 봤던 상품 저장
+    useEffect(() => {
+        dispatch(
+            addProduct({
+                id: productDetail.product.id,
+                title: productDetail.product.title,
+                image: productDetail.product.image,
+            })
+        );
+    }, [productDetail]);
 
     return (
         <div className="lg:flex">

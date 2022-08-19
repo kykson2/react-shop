@@ -37,7 +37,7 @@ const NavBar: React.FC = () => {
 
     const darkModeHandler = (): void => {
         setTheme(colorTheme);
-        colorTheme === 'light' ? setDarkMode(true) : setDarkMode(false);
+        // colorTheme === 'light' ? setDarkMode(true) : setDarkMode(false);
     };
 
     const breadCrumbsSelector = useSelector(
@@ -66,7 +66,7 @@ const NavBar: React.FC = () => {
                             className="flex transition icon-darkmode rotate-45 icon-box"
                             onClick={darkModeHandler}
                         >
-                            {darkMode ? (
+                            {colorTheme === 'dark' ? (
                                 <BsIcons.BsMoon className="flex transition  w-5 h-5 m-auto items-center -rotate-45 duration-400" />
                             ) : (
                                 <BsIcons.BsFillSunFill className="flex transition  w-6 h-6 rotate-0 m-auto duration-400" />
