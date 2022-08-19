@@ -5,17 +5,22 @@ interface IinitialState {
     current: string;
 }
 
+interface Ipayload {
+    payload: IinitialState;
+    type: string;
+}
+
 const initialState: IinitialState = { prev: '', current: '' };
 
 export const breadCrumbsSlice = createSlice({
     name: 'route',
     initialState,
     reducers: {
-        setbreadCrumbsReducer: (state, action) => {
+        setbreadCrumbsReducer: (state: IinitialState, action: Ipayload) => {
             state.current = action.payload.current;
             state.prev = action.payload.prev;
         },
-        removebreadCrumbsReducer: (state) => {
+        removebreadCrumbsReducer: (state: IinitialState) => {
             state.current = '';
             state.prev = '';
         },
