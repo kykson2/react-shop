@@ -17,12 +17,18 @@ import ErrorPage from '@/components/error/ErrorPage';
 import Product from '@/components/product/Product';
 import BreadCrumbs from '@/components/breadCrumb/BreadCrumbs';
 import Footer from '@/components/footer/Footer';
-import ScrollTop from './scrollTop/ScrollTop';
+import Login from '@/components/loginLogout/Login';
+import SignUp from '@/components/loginLogout/SignUp';
+
+import ScrollTop from '@/components/scrollTop/ScrollTop';
 
 import { getStoregyCartListReducer } from '@/store/cartSlice';
 import { IgetStorageCartList } from '@/interface/interface';
 
+import firebase from '@/firebase';
+
 const App = () => {
+    console.log(firebase);
     const getItem = localStorage.getItem('cart');
     const dispatch = useDispatch();
 
@@ -46,6 +52,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<MainPage />} />
                         <Route path="fashion" element={<FashionPage />} />
+                        <Route path="login" element={<Login></Login>}></Route>
                         <Route
                             path="accessories"
                             element={<AccessoriesPage />}
@@ -53,6 +60,7 @@ const App = () => {
                         <Route path="digital" element={<DigitalPage />} />
                         <Route path="cart" element={<Cart />} />
                         <Route path="product/*" element={<Product />} />
+                        <Route path="signUp" element={<SignUp />} />
                         <Route path="/*" element={<ErrorPage />} />
                     </Routes>
                 </div>

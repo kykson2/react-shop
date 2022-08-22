@@ -16,7 +16,7 @@ const Preview: FC = () => {
         <div className="w-full h-72 bg-gray-100 dark:bg-gray-600 ">
             <div className="mx-4 pb-4 overflow-x-auto">
                 <p className="pt-4 text-lg font-semibold dark:text-gray-200">
-                    내가 봤던 상품
+                    내가 본 상품
                 </p>
                 {hitoryProducts.length > 0 ? (
                     <div className="flex h-56 gap-10 items-center">
@@ -25,6 +25,7 @@ const Preview: FC = () => {
                                 <Link
                                     to={`/product/${product.id}`}
                                     className="flex flex-col w-32 h-56 pt-5 "
+                                    id={product.title}
                                 >
                                     <div className="flex h-52 bg-white  rounded-lg items-center place-content-center">
                                         <img
