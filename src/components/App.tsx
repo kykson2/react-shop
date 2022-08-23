@@ -17,7 +17,7 @@ import ErrorPage from '@/components/error/ErrorPage';
 import Product from '@/components/product/Product';
 import BreadCrumbs from '@/components/breadCrumb/BreadCrumbs';
 import Footer from '@/components/footer/Footer';
-import Login from '@/components/loginLogout/Login';
+import SignIn from '@/components/loginLogout/SignIn';
 import SignUp from '@/components/loginLogout/SignUp';
 
 import ScrollTop from '@/components/scrollTop/ScrollTop';
@@ -52,7 +52,10 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<MainPage />} />
                         <Route path="fashion" element={<FashionPage />} />
-                        <Route path="login" element={<Login></Login>}></Route>
+                        <Route
+                            path="signIn"
+                            element={<SignIn></SignIn>}
+                        ></Route>
                         <Route
                             path="accessories"
                             element={<AccessoriesPage />}

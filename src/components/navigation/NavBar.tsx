@@ -61,7 +61,7 @@ const NavBar: React.FC = () => {
                     </h1>
 
                     <div className="flex absolute right-0 mr-2">
-                        <Link to="/login" className="m-auto text-lg mr-3">
+                        <Link to="/signIn" className="m-auto text-lg mr-3">
                             Sign In
                         </Link>
                         <div

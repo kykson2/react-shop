@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
-const Login: FC = () => {
+const SignIn: FC = () => {
     const { handleSubmit } = useForm();
 
     const loginClick = () => {};
@@ -41,9 +41,19 @@ const Login: FC = () => {
                         ></input>
                     </div>
                     <div className="flex mt-9 justify-between">
-                        <button type="submit">Login</button>
+                        <button
+                            type="submit"
+                            className="w-16 h-8 rounded bg-stone-600"
+                        >
+                            Sign In
+                        </button>
                         <Link to="/signUp">
-                            <button type="button">signUp</button>
+                            <button
+                                type="button"
+                                className="w-16 h-8 rounded bg-slate-600 text-white"
+                            >
+                                sign Up
+                            </button>
                         </Link>
                     </div>
                 </div>
@@ -52,4 +62,4 @@ const Login: FC = () => {
     );
 };
 
-export default Login;
+export default SignIn;
