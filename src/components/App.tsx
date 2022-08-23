@@ -28,16 +28,18 @@ import { IgetStorageCartList } from '@/interface/interface';
 import firebase from '@/firebase';
 
 const App = () => {
-    console.log(firebase);
-    const getItem = localStorage.getItem('cart');
     const dispatch = useDispatch();
+    useEffect(() => {
+        firebase;
+        const getItem = localStorage.getItem('cart');
 
-    if (getItem) {
-        const getCartList = JSON.parse(getItem);
-        getCartList.map((item: IgetStorageCartList) => {
-            dispatch(getStoregyCartListReducer(item));
-        });
-    }
+        if (getItem) {
+            const getCartList = JSON.parse(getItem);
+            getCartList.map((item: IgetStorageCartList) => {
+                dispatch(getStoregyCartListReducer(item));
+            });
+        }
+    }, []);
 
     return (
         <div className="w-full h-full dark:bg-slate-800 overflow-x-auto">

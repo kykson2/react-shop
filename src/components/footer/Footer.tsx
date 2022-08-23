@@ -301,7 +301,7 @@ const Footer: FC = () => {
                         </li>
                         <li>
                             <a
-                                href="https://www.instagram.com/"
+                                href="https://www.instagram.com/gwanwoo_x"
                                 target="_blank"
                             >
                                 <AiIcons.AiOutlineInstagram className="w-7 h-7 m-auto" />

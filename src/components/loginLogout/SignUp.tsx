@@ -12,21 +12,12 @@ const SignUp: FC = () => {
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
     } = useForm<Iinput>();
 
     const onSubmit: SubmitHandler<Iinput> = async (data) => {
-        console.log(data.email);
-        console.log(data.password);
-        console.log(watch('password'));
         const auth = getAuth();
-        const result = await createUserWithEmailAndPassword(
-            auth,
-            data.email,
-            data.password
-        );
-        console.log(result);
+        await createUserWithEmailAndPassword(auth, data.email, data.password);
         window.location.replace('/signIn');
     };
 

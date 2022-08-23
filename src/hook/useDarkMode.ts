@@ -1,20 +1,22 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
-type useDarkModeProps = [string, Dispatch<SetStateAction<string>>];
+type themeType = 'dark' | 'light';
+
+type useDarkModeProps = [themeType, Dispatch<SetStateAction<themeType>>];
 
 const useDarkMode = (): useDarkModeProps => {
-    const [theme, setTheme] = useState<string>(localStorage.theme);
-    const colorTheme = theme === 'dark' ? 'light' : 'dark';
+    const [theme, setTheme] = useState<themeType>(localStorage.theme);
+    const reverseTheme = theme === 'dark' ? 'light' : 'dark';
 
     useEffect(() => {
         const root = document.documentElement;
-        root.classList.remove(colorTheme);
+        root.classList.remove(reverseTheme);
         root.classList.add(theme);
 
         localStorage.setItem('theme', theme);
-    }, [theme, colorTheme]);
+    }, [theme, reverseTheme]);
 
-    return [colorTheme, setTheme];
+    return [reverseTheme, setTheme];
 };
 
 export default useDarkMode;

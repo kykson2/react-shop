@@ -14,13 +14,10 @@ import Search from './Search';
 const NavBar: React.FC = () => {
     const [sideBarOnOff, sideBarOnOffHandler, sideBarOffHandler] = useOnOff();
     const [searchOnOff, searchOnOffHandler] = useOnOff();
-    const [colorTheme, setTheme] = useDarkMode();
-    const [darkMode, setDarkMode] = useState<boolean>(false);
+    const [changeTheme, setTheme] = useDarkMode();
     const [totalProductsPrice, setTotalProductPrice] = useState<number>(0);
 
     const productSelector = useSelector((state: Icart) => state.cart);
-
-    const getItem = localStorage.getItem('cart');
 
     let sum = 0;
 
@@ -36,7 +33,7 @@ const NavBar: React.FC = () => {
     }, [productSelector]);
 
     const darkModeHandler = (): void => {
-        setTheme(colorTheme);
+        setTheme(changeTheme);
         // colorTheme === 'light' ? setDarkMode(true) : setDarkMode(false);
     };
 
@@ -72,7 +69,7 @@ const NavBar: React.FC = () => {
                             className="flex transition icon-darkmode rotate-45 icon-box"
                             onClick={darkModeHandler}
                         >
-                            {colorTheme === 'dark' ? (
+                            {changeTheme === 'dark' ? (
                                 <BsIcons.BsMoon className="flex transition  w-5 h-5 m-auto items-center -rotate-45 duration-400" />
                             ) : (
                                 <BsIcons.BsFillSunFill className="flex transition  w-6 h-6 rotate-0 m-auto duration-400" />
