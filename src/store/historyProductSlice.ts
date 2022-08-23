@@ -29,16 +29,15 @@ export const historyProductSlice = createSlice({
                     state.push(action.payload);
             }
         },
-        // removeProduct: (state: IhistoryProduct[], action: Ipayload) => {
-        //     // state.map((product: IinitialState) => {
-        //     //     if (product.id === action.payload.id) {
-        //     //         state.splice(state.indexOf(product), 1);
-        //     //     }
-        //     // });
-        //     state.splice(state.indexOf(action.payload), 1);
-        // },
+        removeProduct: (state: IinitialState[], action: Ipayload) => {
+            state.map((product: IinitialState) => {
+                if (product.id === action.payload.id) {
+                    state.splice(state.indexOf(product), 1);
+                }
+            });
+        },
     },
 });
 
-export const { addProduct } = historyProductSlice.actions;
+export const { addProduct, removeProduct } = historyProductSlice.actions;
 export default historyProductSlice.reducer;

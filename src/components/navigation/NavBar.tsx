@@ -56,12 +56,15 @@ const NavBar: React.FC = () => {
                         <AiIcons.AiOutlineMenu className="flex w-5 h-5 m-auto items-center" />
                     </button>
 
-                    <h1 className="nav-goHome w-48 mx-1 text-lg font-bold">
+                    <h1 className="nav-Home w-48 mx-1 text-lg font-bold">
                         <Link to="/">React Shop</Link>
                     </h1>
 
                     <div className="flex absolute right-0 mr-2">
-                        <Link to="/signIn" className="m-auto text-lg mr-3">
+                        <Link
+                            to="/signIn"
+                            className="md:inline md:m-auto md:text-lg md:mr-3 hidden"
+                        >
                             Sign In
                         </Link>
                         <div
@@ -122,6 +125,13 @@ const NavBar: React.FC = () => {
                             </Link>
                         </li>
                     ))}
+                    <Link
+                        to="/signIn"
+                        className="absolute bottom-10 right-3 text-gray-100 m-auto text-lg mr-3 md:hidden"
+                        onClick={sideBarOnOffHandler}
+                    >
+                        Sign In
+                    </Link>
                 </ul>
             </nav>
             <label

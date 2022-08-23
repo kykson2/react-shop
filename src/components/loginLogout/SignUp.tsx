@@ -27,6 +27,7 @@ const SignUp: FC = () => {
             data.password
         );
         console.log(result);
+        window.location.replace('/signIn');
     };
 
     return (
@@ -53,9 +54,28 @@ const SignUp: FC = () => {
                     <p>password</p>
                     <input
                         type="password"
-                        {...register('password')}
+                        {...register('password', {
+                            required: true,
+                            minLength: {
+                                value: 8,
+                                message: '8자 이상의 비밀번호를 입력해주세요',
+                            },
+                            maxLength: {
+                                value: 16,
+                                message: '16자 이하의 비밀번호를 입력해주세요',
+                            },
+                            pattern: {
+                                value: /^(?=.*\d)(?=.*[a-zA-ZS]).{8,}/,
+                                message: '영문, 숫자를 섞어서 입력해주세요.',
+                            },
+                        })}
                         className="p-1 mt-1"
                     />
+                    {errors.password && (
+                        <p className="text-xs text-red-700 font-bold">
+                            {errors.password.message}
+                        </p>
+                    )}
                 </div>
 
                 <input

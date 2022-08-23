@@ -15,6 +15,11 @@ const SignIn: FC = () => {
             >
                 <div className="flex flex-col">
                     <div>
+                        <p className="font-bold text-2xl text-center pb-2">
+                            Sign In
+                        </p>
+                    </div>
+                    <div>
                         <label
                             htmlFor="user-id"
                             className="text-lg font-semibold block"
@@ -40,19 +45,19 @@ const SignIn: FC = () => {
                             className="mt-3 p-1 bg-gray-200"
                         ></input>
                     </div>
-                    <div className="flex mt-9 justify-between">
+                    <div className="flex mt-6 justify-between">
                         <button
                             type="submit"
-                            className="w-16 h-8 rounded bg-stone-600"
+                            className="w-20 h-10 text-white rounded bg-stone-600"
                         >
-                            Sign In
+                            SIGN IN
                         </button>
                         <Link to="/signUp">
                             <button
                                 type="button"
-                                className="w-16 h-8 rounded bg-slate-600 text-white"
+                                className="w-20 h-10 rounded bg-slate-600 text-white"
                             >
-                                sign Up
+                                SIGN UP
                             </button>
                         </Link>
                     </div>
