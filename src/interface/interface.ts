@@ -13,17 +13,17 @@ interface Iproduct {
     totalPrice?: number;
 }
 
-interface IcartState {
+interface IproductObj {
+    product: Iproduct;
+}
+
+interface Icart {
     id: number;
     count: number;
 }
 
-interface Icart {
-    cart: IcartState[];
-}
-
-interface Istate {
-    product: Iproduct;
+interface IcartArr {
+    cart: Icart[];
 }
 
 interface IcartDispatch {
@@ -58,9 +58,9 @@ interface IhistoryProduct {
 
 export type {
     Iproduct,
-    IcartState,
     Icart,
-    Istate,
+    IcartArr,
+    IproductObj,
     IcartDispatch,
     IgetStorageCartList,
     IbreadCrumbsState,

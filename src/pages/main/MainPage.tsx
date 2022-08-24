@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import MainPageCarousel from '@/components/main/carousel/MainPageCarousel';
-import FashionPage from '@/components/fashion/FashionPage';
-import AccessoriesPage from '@/components/accessories/AccessoriesPage';
-import DigitalPage from '@/components/digital/DigitalPage';
+import MainPageCarousel from '@/components/carousel/MainPageCarousel';
+import FashionPage from '@/pages/fashion/FashionPage';
+import AccessoriesPage from '@/pages/accessories/AccessoriesPage';
+import DigitalPage from '@/pages/digital/DigitalPage';
 import { useDispatch } from 'react-redux';
 import { setbreadCrumbsReducer } from '@/store/breadCrumbsSlice';
-import HistoryView from '@/components/historyView/HistoryPage';
+import HistoryView from '@/components/historyView/HistoryView';
 
 const MainPage: React.FC = () => {
     const dispatch = useDispatch();

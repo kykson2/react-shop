@@ -7,7 +7,7 @@ import SideBarData from '@/components/navigation/SideBarData';
 
 import useOnOff from '@/hook/useOnOff';
 import useDarkMode from '@/hook/useDarkMode';
-import { IbreadCrumbsSelector, Icart } from '@/interface/interface';
+import { IbreadCrumbsSelector, Icart, IcartArr } from '@/interface/interface';
 import { useSelector } from 'react-redux';
 import Search from './Search';
 
@@ -17,20 +17,25 @@ const NavBar: React.FC = () => {
     const [changeTheme, setTheme] = useDarkMode();
     const [totalProductsPrice, setTotalProductPrice] = useState<number>(0);
 
-    const productSelector = useSelector((state: Icart) => state.cart);
+    const thisProductsInCart = useSelector((state: IcartArr) => state.cart);
 
     let sum = 0;
 
     useEffect(() => {
-        productSelector.map((cartProduct) => {
-            sum += cartProduct.count;
-            setTotalProductPrice(sum);
-        });
-        if (!productSelector.length) {
+        if (thisProductsInCart.length)
+            setTotalProductPrice(
+                thisProductsInCart
+                    .map((product: Icart) => Number(product.count))
+                    .reduce((acc, cur) => {
+                        return (acc += cur);
+                    })
+            );
+
+        if (!thisProductsInCart.length) {
             setTotalProductPrice(0);
         }
         sum = 0;
-    }, [productSelector]);
+    }, [thisProductsInCart]);
 
     const darkModeHandler = (): void => {
         setTheme(changeTheme);

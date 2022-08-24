@@ -28,7 +28,10 @@ interface IFilledCart {
     productSelector: IcartState[];
 }
 
-const FilledCart: FC<IFilledCart> = ({ distinctionList, productSelector }) => {
+const FilledCartPage: FC<IFilledCart> = ({
+    distinctionList,
+    productSelector,
+}) => {
     const dispatch = useDispatch();
     return (
         <div>
@@ -109,4 +112,4 @@ const FilledCart: FC<IFilledCart> = ({ distinctionList, productSelector }) => {
     );
 };
 
-export default FilledCart;
+export default FilledCartPage;

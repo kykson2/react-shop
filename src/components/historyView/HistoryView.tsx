@@ -5,12 +5,11 @@ import { useSelector } from 'react-redux';
 
 import HistoryProducsList from '@/components/historyView/HistoryProductsList';
 
-const Preview: FC = () => {
+const HistoryView: FC = () => {
     const hitoryProducts = useSelector(
         (state: IhistoryProduct) => state
     ).historyProduct;
 
-    console.log(hitoryProducts);
     return (
         <div className="w-full h-72 bg-gray-100 dark:bg-gray-600 ">
             <div className="mx-4 pb-4 overflow-x-auto">
@@ -31,4 +30,4 @@ const Preview: FC = () => {
     );
 };
 
-export default Preview;
+export default HistoryView;

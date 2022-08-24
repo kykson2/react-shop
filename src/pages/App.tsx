@@ -8,17 +8,17 @@ import {
 import { useDispatch } from 'react-redux';
 
 import NavBar from '@/components/navigation/NavBar';
-import MainPage from '@/components/main/MainPage';
-import FashionPage from '@/components/fashion/FashionPage';
-import AccessoriesPage from '@/components/accessories/AccessoriesPage';
-import DigitalPage from '@/components/digital/DigitalPage';
-import Cart from '@/components/cart/Cart';
-import ErrorPage from '@/components/error/ErrorPage';
-import Product from '@/components/product/Product';
+import MainPage from '@/pages/main/MainPage';
+import FashionPage from '@/pages/fashion/FashionPage';
+import AccessoriesPage from '@/pages/accessories/AccessoriesPage';
+import DigitalPage from '@/pages/digital/DigitalPage';
+import Cart from '@/pages/cart/CartPage';
+import ErrorPage from '@/pages/error/ErrorPage';
+import Product from '@/pages/product/ProductPage';
 import BreadCrumbs from '@/components/breadCrumb/BreadCrumbs';
 import Footer from '@/components/footer/Footer';
-import SignIn from '@/components/loginLogout/SignIn';
-import SignUp from '@/components/loginLogout/SignUp';
+import SignIn from '@/pages/loginLogout/SignIn';
+import SignUp from '@/pages/loginLogout/SignUp';
 
 import ScrollTop from '@/components/scrollTop/ScrollTop';
 

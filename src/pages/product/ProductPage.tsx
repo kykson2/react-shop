@@ -6,13 +6,13 @@ import StarsRating from 'react-star-ratings';
 import { addProduct } from '@/store/historyProductSlice';
 
 import { setProductReducer } from '@/store/cartSlice';
-import { Iproduct, Istate } from '@/interface/interface';
+import { Iproduct, IproductObj } from '@/interface/interface';
 import { setbreadCrumbsReducer } from '@/store/breadCrumbsSlice';
 
 import products from '@/product.json';
 import ErrorPage from '../error/ErrorPage';
 
-const Product: React.FC = () => {
+const ProductPage: React.FC = () => {
     const location = useLocation();
     const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ const Product: React.FC = () => {
     const pathSplit = path.split('/product/');
     const productNumber = Number(pathSplit[1]);
 
-    const [productDetail, setProductDetail] = useState<Istate>({
+    const [productDetail, setProductDetail] = useState<IproductObj>({
         product: {
             id: 0,
             title: '',
@@ -168,4 +168,4 @@ const Product: React.FC = () => {
     );
 };
 
-export default Product;
+export default ProductPage;

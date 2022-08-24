@@ -17,7 +17,7 @@ const HistoryProductsList: FC<Ihistory> = ({ hitoryProducts }) => {
             <div className="flex h-56 gap-10 items-center">
                 {hitoryProducts.map((product: IhistoryProductState) => {
                     return (
-                        <div className="relative">
+                        <div className="relative" key={product.id}>
                             <Link
                                 to={`/product/${product.id}`}
                                 className="relative flex flex-col w-32 h-56 pt-5 z-10"
