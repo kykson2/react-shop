@@ -1,28 +1,24 @@
 import { IbreadCrumbsSelector } from '@/interface/interface';
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 
-const BreadCrumbs: React.FC = () => {
-    const breadCrumbsSelector = useSelector(
-        (state: IbreadCrumbsSelector) => state.breadCrumbs
-    );
+interface IBreadCrumbsProps {
+    prevPage: string;
+    currentPage: string;
+}
 
-    const [prevPage, setPrevPage] = useState<string>('');
-    const [currentPage, setCurrentPage] = useState<string>('');
-
-    useEffect(() => {
-        setPrevPage(breadCrumbsSelector.prev);
-        setCurrentPage(breadCrumbsSelector.current);
-    }, [breadCrumbsSelector]);
+const BreadCrumbs: React.FC<IBreadCrumbsProps> = ({
+    prevPage,
+    currentPage,
+}) => {
+    if (prevPage === undefined) prevPage = '홈';
 
     return (
         <>
-            {prevPage !== '' && (
-                <ul className="flex ml-6 pt-6 items-center overflow-x-auto whitespace-nowrap text-sm pb-3 dark:text-gray-400">
-                    <li className="flex ">{prevPage}</li>
+            <ul className="flex ml-6 pt-6 items-center overflow-x-auto whitespace-nowrap text-sm pb-3 dark:text-gray-400">
+                <li className="flex ">{prevPage}</li>
 
-                    <li
-                        className='flex before:content-[""] 
+                <li
+                    className='flex before:content-[""] 
                         before:self-center
                         before:w-2
                         before:h-2
@@ -33,11 +29,10 @@ const BreadCrumbs: React.FC = () => {
                         before:ml-2
                         before:mr-4
                         '
-                    >
-                        {currentPage}
-                    </li>
-                </ul>
-            )}
+                >
+                    {currentPage}
+                </li>
+            </ul>
         </>
     );
 };

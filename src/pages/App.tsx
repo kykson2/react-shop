@@ -47,8 +47,6 @@ const App = () => {
                 <ScrollTop />
                 {/* 네비게이션 바 */}
                 <NavBar />
-                {/* 이동 경로 */}
-                <BreadCrumbs />
 
                 <div className="relative w-full h-full pb-32">
                     <Routes>
@@ -64,7 +62,10 @@ const App = () => {
                         />
                         <Route path="digital" element={<DigitalPage />} />
                         <Route path="cart" element={<Cart />} />
-                        <Route path="product/*" element={<Product />} />
+                        <Route
+                            path="product/:productId"
+                            element={<Product />}
+                        />
                         <Route path="signUp" element={<SignUp />} />
                         <Route path="/*" element={<ErrorPage />} />
                     </Routes>

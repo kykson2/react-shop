@@ -56,6 +56,11 @@ interface IhistoryProduct {
     historyProduct: IhistoryProductState[];
 }
 
+interface IproductPageProps {
+    limit?: number;
+    prevAddr?: string;
+}
+
 export type {
     Iproduct,
     Icart,
@@ -67,4 +72,5 @@ export type {
     IbreadCrumbsSelector,
     IhistoryProductState,
     IhistoryProduct,
+    IproductPageProps,
 };

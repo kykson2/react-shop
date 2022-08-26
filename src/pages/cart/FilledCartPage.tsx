@@ -2,30 +2,11 @@ import React, { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addProductCount, subProductCount } from '@/store/cartSlice';
-
-interface IcartState {
-    id: number;
-    count: number;
-}
-
-interface Iproduct {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    category: string;
-    image: string;
-    rating: {
-        rate: number;
-        count: number;
-    };
-    totalCount?: number;
-    totalPrice?: number;
-}
+import { Icart, Iproduct } from '@/interface/interface';
 
 interface IFilledCart {
     distinctionList: Iproduct[];
-    productSelector: IcartState[];
+    productSelector: Icart[];
 }
 
 const FilledCartPage: FC<IFilledCart> = ({

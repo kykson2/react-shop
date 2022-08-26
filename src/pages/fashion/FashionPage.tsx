@@ -1,28 +1,21 @@
 import { FC, useEffect, useState } from 'react';
 import ProductsList from '@/components/product/ProductsList';
 import BreadCrumbs from '@/components/breadCrumb/BreadCrumbs';
-import { useDispatch } from 'react-redux';
-import { setbreadCrumbsReducer } from '@/store/breadCrumbsSlice';
+import { IproductPageProps } from '@/interface/interface';
 
-interface Ilimit {
-    limit?: number;
-}
-
-const FashionPage: FC<Ilimit> = ({ limit }) => {
+const FashionPage: FC<IproductPageProps> = ({ limit, prevAddr }) => {
     const category: string = 'clothing';
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(
-            setbreadCrumbsReducer({
-                prev: '홈',
-                current: '패션',
-            })
-        );
-    }, []);
+    const currentPage = '패션';
 
     return (
         <div>
+            {!limit && (
+                <BreadCrumbs
+                    prevPage={prevAddr as string}
+                    currentPage={currentPage}
+                />
+            )}
+
             <div className="category">패션</div>
             <ProductsList category={category} limit={limit} />
         </div>

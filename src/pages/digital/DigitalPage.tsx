@@ -1,27 +1,20 @@
+import BreadCrumbs from '@/components/breadCrumb/BreadCrumbs';
 import ProductsList from '@/components/product/ProductsList';
-import { setbreadCrumbsReducer } from '@/store/breadCrumbsSlice';
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { IproductPageProps } from '@/interface/interface';
+import React from 'react';
 
-interface Ilimit {
-    limit?: number;
-}
-
-const DigitalPage: React.FC<Ilimit> = ({ limit }) => {
+const DigitalPage: React.FC<IproductPageProps> = ({ limit, prevAddr }) => {
     const category: string = 'electronics';
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(
-            setbreadCrumbsReducer({
-                prev: '홈',
-                current: '디지털',
-            })
-        );
-    }, []);
+    const currentPage = '디지털';
 
     return (
         <div>
+            {!limit && (
+                <BreadCrumbs
+                    prevPage={prevAddr as string}
+                    currentPage={currentPage}
+                />
+            )}
             <div className="category">디지털</div>
             <ProductsList category={category} limit={limit} />
         </div>

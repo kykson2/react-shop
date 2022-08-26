@@ -1,5 +1,5 @@
 import { Iproduct } from '@/interface/interface';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 interface Icategory {
@@ -19,7 +19,6 @@ const ProductPageProductList: FC<Icategory> = ({
                         item.category.includes(category) && (
                             <Link
                                 to={`/product/${item.id}`}
-                                state={{ product: item }}
                                 key={item.id}
                                 className="flex flex-col border bg-white rounded-xl flex-1 dark:border-0 dark:border-slate-700 group m-4"
                             >

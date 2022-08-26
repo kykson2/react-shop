@@ -7,7 +7,7 @@ import SideBarData from '@/components/navigation/SideBarData';
 
 import useOnOff from '@/hook/useOnOff';
 import useDarkMode from '@/hook/useDarkMode';
-import { IbreadCrumbsSelector, Icart, IcartArr } from '@/interface/interface';
+import { Icart, IcartArr } from '@/interface/interface';
 import { useSelector } from 'react-redux';
 import Search from './Search';
 
@@ -39,12 +39,7 @@ const NavBar: React.FC = () => {
 
     const darkModeHandler = (): void => {
         setTheme(changeTheme);
-        // colorTheme === 'light' ? setDarkMode(true) : setDarkMode(false);
     };
-
-    const breadCrumbsSelector = useSelector(
-        (state: IbreadCrumbsSelector) => state.breadCrumbs
-    );
 
     return (
         <div className="relative w-full h-16 z-20">
@@ -117,10 +112,10 @@ const NavBar: React.FC = () => {
                 }
                          md:fixed md:w-80 md:h-10 md:-top-1 z-50 md:left-24 md:bg-inherit md:visible md:${sideBarOffHandler}`}
             >
-                <ul className="nav-side-menu-items md:flex ">
+                <ul className="nav-side-menu-items md:flex">
                     {SideBarData.map((item) => (
                         <li key={item.id} className={`${item.cName} px-4 py-3`}>
-                            <Link to={item.path} onClick={sideBarOnOffHandler}>
+                            <Link to={item.path} onClick={sideBarOffHandler}>
                                 <span className="font-medium text-gray-100 md:font-bold md:text-black md:dark:text-white">
                                     {item.title}
                                 </span>
