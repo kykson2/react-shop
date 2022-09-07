@@ -46,6 +46,12 @@ localstorage에도 장바구니 목록을 저장하여 페이지에 재접속했
 
 ---
 
+### 프로젝트 개선 과정
+
+1. devDependencies 와 dependencies 정리 [tistory](https://gaanuu.tistory.com/entry/dependencies-%EC%99%80-devDependencies-%EC%96%B4%EB%94%94%EC%97%90-%EC%84%A4%EC%B9%98%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C)
+
+---
+
 ### 시작
 
 ```
