@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     BrowserRouter as Router,
     Route,
     Routes,
     useLocation,
 } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import NavBar from '@/components/navigation/NavBar';
 import MainPage from '@/pages/main/MainPage';

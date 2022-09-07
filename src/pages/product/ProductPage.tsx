@@ -16,7 +16,7 @@ import products from '@/product.json';
 import ErrorPage from '../error/ErrorPage';
 import BreadCrumbs from '@/components/breadCrumb/BreadCrumbs';
 
-const ProductPage: React.FC<IproductPageProps> = ({ prevAddr }) => {
+const ProductPage: React.FC = () => {
     const dispatch = useDispatch();
     const { productId } = useParams();
 
@@ -63,6 +63,7 @@ const ProductPage: React.FC<IproductPageProps> = ({ prevAddr }) => {
         (item: Iproduct) => item.id === Number(productId)
     );
 
+    // 선택된 category 확인
     useEffect(() => {
         if (productDetail.product.category.includes('clothing')) {
             setCategory('패션');
