@@ -23,7 +23,6 @@ export const cartSlice = createSlice({
             state.filter(
                 (product: IinitialState) => product.id === action.payload.id
             ).length === 0 && state.push(action.payload);
-            localStorage.setItem('cart', JSON.stringify(state));
         },
 
         setProductReducer: (state: IinitialState[], action: Ipayload) => {
@@ -36,8 +35,6 @@ export const cartSlice = createSlice({
             state.filter(
                 (product: IinitialState) => product.id === action.payload.id
             ).length === 0 && state.push(action.payload);
-
-            localStorage.setItem('cart', JSON.stringify(state));
         },
 
         addProductCount: (state: IinitialState[], action: Ipayload) => {
@@ -47,8 +44,6 @@ export const cartSlice = createSlice({
                 }
                 if (!product.count) state.splice(state.indexOf(product), 1);
             });
-
-            localStorage.setItem('cart', JSON.stringify(state));
         },
 
         subProductCount: (state: IinitialState[], action: Ipayload) => {
@@ -59,15 +54,12 @@ export const cartSlice = createSlice({
 
                 if (!product.count) state.splice(state.indexOf(product), 1);
             });
-
-            localStorage.setItem('cart', JSON.stringify(state));
         },
 
         removeCart: (state: IinitialState[]) => {
             state.map((product: IinitialState) => {
                 if (product.count) state.splice(state.indexOf(product));
             });
-            localStorage.setItem('cart', JSON.stringify(state));
         },
     },
 });

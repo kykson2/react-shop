@@ -37,12 +37,14 @@ const NavBar: React.FC = () => {
 
     const thisProductsInCart = useSelector((state: IcartArr) => state.cart);
 
-    const { loginInformation } = useSelector((state: Iuser) => state);
+    const loginInformation = useSelector(
+        (state: Iuser) => state.loginInformation.email
+    );
 
     const [userEmail, setUserEmail] = useState<string>('');
     useEffect(() => {
-        setUserEmail(loginInformation.email);
-    }, [loginInformation.email]);
+        if (loginInformation !== '') setUserEmail(loginInformation);
+    }, [loginInformation]);
 
     useEffect(() => {
         if (thisProductsInCart.length)

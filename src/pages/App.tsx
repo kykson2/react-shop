@@ -31,14 +31,14 @@ const App = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         firebase;
-        const getItem = localStorage.getItem('cart');
+        // const getItem = localStorage.getItem('cart');
 
-        if (getItem) {
-            const getCartList = JSON.parse(getItem);
-            getCartList.map((item: IgetStorageCartList) => {
-                dispatch(getStoregyCartListReducer(item));
-            });
-        }
+        // if (getItem) {
+        //     const getCartList = JSON.parse(getItem);
+        //     getCartList.map((item: IgetStorageCartList) => {
+        //         dispatch(getStoregyCartListReducer(item));
+        //     });
+        // }
     }, []);
 
     return (
