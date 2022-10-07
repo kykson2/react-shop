@@ -12,7 +12,8 @@
   const skill = [
     react,
     redux,
-    typescript
+    typescript,
+    tailwind css
   ]
 ```
 
